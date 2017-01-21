@@ -1,19 +1,11 @@
 package com.gxhdx.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /** 
  * @ClassName: SlideImg 
- * @Description: TODO(这里用一句话描述这个类的作用) 
- * @author zhangp 
- * @date 2016年7月6日 下午4:30:51 
+ * @Description: TODO(这里用一句话描述这个类的作用)
  *  
  */
 @Entity

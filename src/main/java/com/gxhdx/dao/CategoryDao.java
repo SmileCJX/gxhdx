@@ -1,15 +1,13 @@
 package com.gxhdx.dao;
 
-import java.util.List;
-
 import com.gxhdx.entity.Category;
 import com.gxhdx.support.PageDto;
 
+import java.util.List;
+
 /** 
  * @ClassName: CategoryDao 
- * @Description: TODO(这里用一句话描述这个类的作用) 
- * @author zhangp 
- * @date 2016年6月27日 下午2:14:24 
+ * @Description: TODO(这里用一句话描述这个类的作用)
  *  
  */
 public interface CategoryDao {

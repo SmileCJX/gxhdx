@@ -7,8 +7,6 @@ import java.util.Date;
 /**
  * @ClassName: Attachment
  * @Description: TODO(这里用一句话描述这个类的作用)
- * @author zhangp
- * @date 2016年6月29日 下午1:58:39
  * 
  */
 @Entity

@@ -12,9 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /** 
  * @ClassName: RetryLimitHashedCredentialsMatcher 
- * @Description: TODO(这里用一句话描述这个类的作用) 
- * @author zhangp 
- * @date 2016年6月17日 上午11:06:04 
+ * @Description: TODO(这里用一句话描述这个类的作用)
  *  
  */
 public class RetryLimitHashedCredentialsMatcher extends HashedCredentialsMatcher {

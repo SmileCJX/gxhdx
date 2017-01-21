@@ -1,15 +1,14 @@
 package com.gxhdx.service;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.gxhdx.dao.UserDao;
 import com.gxhdx.entity.User;
 import com.gxhdx.entity.UserRole;
 import com.gxhdx.support.PageDto;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * @ClassName: UserServiceImpl
@@ -110,7 +109,7 @@ public class UserServiceImpl implements UserService {
 	/**
 	 * 根据用户名查找用户
 	 * 
-	 * @param username
+	 * @param userName
 	 * @return
 	 */
 	@Transactional
@@ -121,7 +120,7 @@ public class UserServiceImpl implements UserService {
 	/**
 	 * 根据用户名查找其角色
 	 * 
-	 * @param username
+	 * @param userName
 	 * @return
 	 */
 	@Transactional
@@ -132,7 +131,7 @@ public class UserServiceImpl implements UserService {
 	/**
 	 * 根据用户名查找其权限
 	 * 
-	 * @param username
+	 * @param userName
 	 * @return
 	 */
 	@Transactional

@@ -1,19 +1,11 @@
 package com.gxhdx.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * @ClassName: RolePermssion
  * @Description: TODO(这里用一句话描述这个类的作用)
- * @author zhangp
- * @date 2016年6月16日 下午5:21:15
  *       之所以自己写关联表是为了方便自己控制。hibernate的关联关系特定查询层级太多会产生大量的sql查询
  */
 @Entity

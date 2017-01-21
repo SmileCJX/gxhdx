@@ -1,15 +1,14 @@
 package com.gxhdx.service;
 
-import java.util.List;
-import java.util.Date;
-
 import com.gxhdx.entity.Stadium;
 import com.gxhdx.support.PageDto;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * @ClassName: StadiumService
  * @Description: TODO(这里用一句话描述这个类的作用)
- * @author zhangp
  * 
  */
 public interface StadiumService {

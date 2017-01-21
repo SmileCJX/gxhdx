@@ -1,16 +1,14 @@
 package com.gxhdx.service;
 
-import java.util.List;
-
 import com.gxhdx.entity.SlideImg;
 import com.gxhdx.support.PageDto;
+
+import java.util.List;
 
 
 /** 
  * @ClassName: SlideImgService 
- * @Description: TODO(这里用一句话描述这个类的作用) 
- * @author zhangp 
- * @date 2016年7月6日 下午5:03:48 
+ * @Description: TODO(这里用一句话描述这个类的作用)
  *  
  */
 public interface SlideImgService {

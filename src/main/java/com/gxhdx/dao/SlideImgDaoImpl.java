@@ -1,20 +1,17 @@
 package com.gxhdx.dao;
 
-import java.util.List;
-
+import com.gxhdx.entity.SlideImg;
+import com.gxhdx.support.PageDto;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
-import com.gxhdx.entity.SlideImg;
-import com.gxhdx.support.PageDto;
+import java.util.List;
 
 /**
  * @ClassName: SlideImgDaoImpl
  * @Description: TODO(这里用一句话描述这个类的作用)
- * @author zhangp
- * @date 2016年7月6日 下午4:49:26
  * 
  */
 @Component("slideImgDao")

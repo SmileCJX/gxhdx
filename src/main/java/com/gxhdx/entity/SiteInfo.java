@@ -12,8 +12,6 @@ import javax.persistence.Table;
 /**
  * @ClassName: SiteInfo
  * @Description: TODO(这里用一句话描述这个类的作用)
- * @author zhangp
- * @date 2016年7月5日 上午10:26:37
  * 
  */
 @Entity

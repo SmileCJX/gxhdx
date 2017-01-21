@@ -1,20 +1,13 @@
 package com.gxhdx.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Transient;
-
 /**
  * @ClassName: Stadium
  * @Description: TODO(球场实体类)
- * @author zhangp
- * @date 2016年7月13日 上午10:44:07
  * 
  */
 //@Entity

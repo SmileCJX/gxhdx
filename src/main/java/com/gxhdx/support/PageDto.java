@@ -6,9 +6,6 @@ import java.util.List;
 /**
  * @ClassName: PageDto
  * @Description: TODO(这里用一句话描述这个类的作用)
- * @author zhangp
- * @date 2016年6月21日 上午11:31:32
- * 
  * @param <T>
  */
 public class PageDto<T> implements Serializable {

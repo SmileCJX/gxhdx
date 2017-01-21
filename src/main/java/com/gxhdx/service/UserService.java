@@ -1,10 +1,10 @@
 package com.gxhdx.service;
 
-import java.util.List;
-
 import com.gxhdx.entity.User;
 import com.gxhdx.entity.UserRole;
 import com.gxhdx.support.PageDto;
+
+import java.util.List;
 
 /**
  * <p>
@@ -50,7 +50,7 @@ public interface UserService {
 	/**
 	 * 根据用户名查找用户
 	 * 
-	 * @param username
+	 * @param userName
 	 * @return
 	 */
 	public User findByUserName(String userName);
@@ -58,7 +58,7 @@ public interface UserService {
 	/**
 	 * 根据用户名查找其角色
 	 * 
-	 * @param username
+	 * @param userName
 	 * @return
 	 */
 	public List<String> findRoles(String userName);
@@ -66,7 +66,7 @@ public interface UserService {
 	/**
 	 * 根据用户名查找其权限
 	 * 
-	 * @param username
+	 * @param userName
 	 * @return
 	 */
 	public List<String> findPermissions(String userName);

@@ -1,24 +1,21 @@
 package com.gxhdx.dao;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
+import com.gxhdx.entity.Category;
+import com.gxhdx.support.PageDto;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
-import com.gxhdx.entity.Category;
-import com.gxhdx.support.PageDto;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName: CategoryDaoImpl
  * @Description: TODO(这里用一句话描述这个类的作用)
- * @author zhangp
- * @date 2016年6月27日 下午2:18:35
  * 
  */
 @Component("categoryDao")

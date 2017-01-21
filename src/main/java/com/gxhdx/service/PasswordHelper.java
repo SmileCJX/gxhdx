@@ -11,9 +11,7 @@ import com.gxhdx.entity.User;
 
 /** 
  * @ClassName: PasswordHelper 
- * @Description: TODO(这里用一句话描述这个类的作用) 
- * @author zhangp 
- * @date 2016年6月17日 上午11:26:35 
+ * @Description: TODO(这里用一句话描述这个类的作用)
  *  
  */
 @Component("passwordHelper")

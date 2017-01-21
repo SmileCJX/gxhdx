@@ -1,20 +1,13 @@
 package com.gxhdx.entity;
 
 //这个地方可以事先定义好需要的类   
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * @ClassName: Stadium
  * @Description: TODO(Stadium实体类)
- * @author zhangp
  * 
  */
 @Entity

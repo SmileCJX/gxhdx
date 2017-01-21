@@ -1,20 +1,12 @@
 package com.gxhdx.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 
 /** 
  * @ClassName: Role 
- * @Description: TODO(这里用一句话描述这个类的作用) 
- * @author zhangp 
- * @date 2016年6月16日 下午5:21:04 
+ * @Description: TODO(这里用一句话描述这个类的作用)
  *  
  */
 @Entity

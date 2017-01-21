@@ -1,14 +1,10 @@
 package com.gxhdx.support;
 
-import java.util.HashMap;
-
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.Tag;
 import javax.servlet.jsp.tagext.TagSupport;
+import java.util.HashMap;
 
-/**
- * @author: zhangp Date: 14-9-17 Time: 上午9:55.
- */
 public class AuthTag extends TagSupport {
 	private static final long serialVersionUID = 1L;
 

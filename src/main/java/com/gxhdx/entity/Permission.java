@@ -7,8 +7,6 @@ import java.util.List;
 /**
  * @ClassName: Permission
  * @Description: TODO(这里用一句话描述这个类的作用)
- * @author zhangp
- * @date 2016年6月16日 下午5:20:42
  * 
  */
 @Entity

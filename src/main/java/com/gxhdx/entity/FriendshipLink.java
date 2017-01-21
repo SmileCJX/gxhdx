@@ -1,19 +1,11 @@
 package com.gxhdx.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * @ClassName: FriendshipLink
  * @Description: TODO(友情链接实体类)
- * @author zhangp
- * @date 2016年7月5日 上午11:06:00
  * 
  */
 @Entity

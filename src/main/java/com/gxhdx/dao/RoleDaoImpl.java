@@ -1,22 +1,19 @@
 package com.gxhdx.dao;
 
-import java.util.List;
-
+import com.gxhdx.entity.Role;
+import com.gxhdx.entity.RolePermission;
+import com.gxhdx.support.PageDto;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
-import com.gxhdx.entity.Role;
-import com.gxhdx.entity.RolePermission;
-import com.gxhdx.support.PageDto;
+import java.util.List;
 
 /**
  * @ClassName: RoleDaoImpl
  * @Description: TODO(这里用一句话描述这个类的作用)
- * @author zhangp
- * @date 2016年6月16日 下午5:45:33
  * 
  */
 @Component("roleDao")

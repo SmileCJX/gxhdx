@@ -1,16 +1,14 @@
 package com.gxhdx.dao;
 
-import java.util.Date;
-import java.util.List;
-
 import com.gxhdx.entity.Attachment;
 import com.gxhdx.support.PageDto;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * @ClassName: AttachmentDao
  * @Description: TODO(这里用一句话描述这个类的作用)
- * @author zhangp
- * @date 2016年6月29日 下午1:58:07
  * 
  */
 public interface AttachmentDao {

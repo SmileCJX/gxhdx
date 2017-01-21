@@ -1,15 +1,13 @@
 package com.gxhdx.dao;
 
-import java.util.List;
-
 import com.gxhdx.entity.FriendshipLink;
 import com.gxhdx.support.PageDto;
+
+import java.util.List;
 
 /**
  * @ClassName: FriendshipLinkDao
  * @Description: TODO(这里用一句话描述这个类的作用)
- * @author zhangp
- * @date 2016年7月5日 上午11:18:56
  * 
  */
 public interface FriendshipLinkDao {

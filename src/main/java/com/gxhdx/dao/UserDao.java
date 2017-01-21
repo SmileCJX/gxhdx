@@ -1,16 +1,14 @@
 package com.gxhdx.dao;
 
-import java.util.List;
-
 import com.gxhdx.entity.User;
 import com.gxhdx.entity.UserRole;
 import com.gxhdx.support.PageDto;
 
+import java.util.List;
+
 /**
  * @ClassName: UserDao
  * @Description: TODO(这里用一句话描述这个类的作用)
- * @author zhangp
- * @date 2016年6月16日 下午5:45:46
  * 
  */
 public interface UserDao {

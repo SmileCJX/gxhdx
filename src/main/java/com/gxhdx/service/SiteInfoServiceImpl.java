@@ -10,8 +10,6 @@ import com.gxhdx.entity.SiteInfo;
 /**
  * @ClassName: SiteInfoServiceImpl
  * @Description: TODO(这里用一句话描述这个类的作用)
- * @author zhangp
- * @date 2016年7月5日 下午2:17:15
  * 
  */
 @Service("siteInfoService")

@@ -1,20 +1,17 @@
 package com.gxhdx.service;
 
-import java.util.List;
-
+import com.gxhdx.dao.PermissionDao;
+import com.gxhdx.entity.Permission;
+import com.gxhdx.support.PageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.gxhdx.dao.PermissionDao;
-import com.gxhdx.entity.Permission;
-import com.gxhdx.support.PageDto;
+import java.util.List;
 
 /**
  * @ClassName: PermissionServiceImpl
  * @Description: TODO(这里用一句话描述这个类的作用)
- * @author zhangp
- * @date 2016年6月17日 上午11:37:15
  * 
  */
 @Service("permissionService")
