@@ -17,7 +17,7 @@
 	<div class="signin">
 		<div class="signin-head">
 			<img src="<c:url value="/static/image/login/head_120.png"/>" alt=""
-				width="120px" class="img-circle">
+				 width="120px" class="img-circle">
 		</div>
 		<form class="form-signin" role="form" action="login" method="post">
 			<input type="text" class="form-control" name="userName" value="test"

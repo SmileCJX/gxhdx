@@ -91,16 +91,21 @@
 					<p>
 						<span class="am-icon-bookmark"></span> 公告
 					</p>
-					<p>时光静好，与君语；细水流年，与君同。—— Amaze UI</p>
+					<p>热闹的活动集散地，各种校园活动攻略!!!</p>
 				</div>
 			</div>
 
 			<div class="am-panel am-panel-default admin-sidebar-panel">
 				<div class="am-panel-bd">
 					<p>
-						<span class="am-icon-tag"></span> wiki
+						<span class="am-icon-tag"></span> 个人信息
 					</p>
-					<p>Welcome to the Amaze UI wiki!</p>
+					<p>
+						<span class="am-icon-qq am-icon-fw"></span> 1092925421
+					</p>
+					<p>
+						<span class="am-icon-phone am-icon-fw"></span> 18649807437
+					</p>
 				</div>
 			</div>
 		</div>

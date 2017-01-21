@@ -1,15 +1,8 @@
 package com.gxhdx.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Transient;
 
 /**
  * @ClassName: Permission
@@ -29,20 +22,29 @@ public class Permission implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private Long id;
+
 	@Column(name = "parent_id")
 	private Long parentId;
+
 	@Column(name = "permission")
 	private String permission; // 权限标识 程序中判断使用,如"user:create"
+
 	@Column(name = "description")
 	private String description; // 权限描述,UI界面显示使用
+
 	@Column(name = "show_order")
 	private Integer showOrder; // 权限类型,menu-菜单/permission-细粒度权限(不会显示在菜单中,只会在做权限判断的时候用)
+
 	@Column(name = "available")
 	private Boolean available = Boolean.FALSE; // 是否可用,如果不可用将不会添加给用户
+
+	//@Transient表示该属性并非一个到数据库表的字段的映射,ORM框架将忽略该属性.
 	@Transient
 	private List<Permission> childList;
+
 	@Column(name = "parent_name")
 	private String  parentName;
+
 	@Column(name = "icon")
 	private String  icon;
 
