@@ -5,25 +5,25 @@
 	version="2.1">
 	<tlib-version>1.0</tlib-version>
 	<short-name>myfn</short-name>
-	<uri>http://www.cms.com/thinkcms/functions</uri>
+	<uri>http://www.cms.com/gxhdx/functions</uri>
 	<function>
 		<name>contains</name>
-		<function-class>com.thinkcms.support.FunctionUtil</function-class>
+		<function-class>com.gxhdx.support.FunctionUtil</function-class>
 		<function-signature>boolean contains(java.util.Collection, java.lang.Object)</function-signature>
 	</function>
 	<function>
 		<name>contain</name>
-		<function-class>com.thinkcms.support.FunctionUtil</function-class>
+		<function-class>com.gxhdx.support.FunctionUtil</function-class>
 		<function-signature>boolean contain(java.lang.String, java.lang.String)</function-signature>
 	</function>
 	<function>
 		<name>equals</name>
-		<function-class>com.thinkcms.support.FunctionUtil</function-class>
+		<function-class>com.gxhdx.support.FunctionUtil</function-class>
 		<function-signature>boolean equals(java.lang.String, java.lang.String)</function-signature>
 	</function>
 	<function>
 		<name>splitTerminal</name>
-		<function-class>com.thinkcms.support.FunctionUtil</function-class>
+		<function-class>com.gxhdx.support.FunctionUtil</function-class>
 		<function-signature>java.lang.String splitTerminal(java.lang.String, java.lang.String)</function-signature>
 	</function>
 </taglib>

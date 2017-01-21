@@ -11,7 +11,7 @@
                             http://www.springframework.org/schema/task 
 					        http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 	<!-- spring自动注入dao和service的扫描范围 -->
-	<context:component-scan base-package="com.thinkcms"></context:component-scan>
+	<context:component-scan base-package="com.gxhdx"></context:component-scan>
 	<!-- 数据库连接属性 -->
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -52,9 +52,9 @@
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
-		<property name="packagesToScan" value="com.thinkcms.entity" />
+		<property name="packagesToScan" value="com.gxhdx.entity" />
 	</bean>
-	<bean id="baseDao" class="com.thinkcms.dao.BaseDao">
+	<bean id="baseDao" class="com.gxhdx.dao.BaseDao">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 </beans>

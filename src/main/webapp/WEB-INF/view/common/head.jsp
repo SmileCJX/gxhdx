@@ -6,7 +6,7 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp"/>
-<title>thinkcms</title>
+<title>gxhdx</title>
 
 <!-- AmazeUI -->
 <link rel="stylesheet" type="text/css"

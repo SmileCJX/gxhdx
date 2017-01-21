@@ -1,4 +1,4 @@
-#thinkcms
+#gxhdx
 Java CMS系统，完善的后台功能，大气的前台页面
 主要技术
 springmvc-mvc控制层
@@ -15,13 +15,13 @@ http://maven.aliyun.com/nexus/content/groups/public/
 
 项目中所有文件上传用的七牛的图片存储。
 需要修改为自己的七牛注册的账号 
-修改com.thinkcms.support.QiniuFileUtil中相关参数
+修改com.gxhdx.support.QiniuFileUtil中相关参数
 ++++++++++++++++++++++++++++++++++++++++++++++++
 数据库的配置需要修改src/main/resource/db.properties连接配置
 初始化的一些数据的sql文件。src/main/resource文件夹下thinkcms.sql
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 关于代码生成
-在com.thinkcms.gencode包下面有代码生成的相关代码。可根据里面freemarker的配置生成相应的
+在com.gxhdx.gencode包下面有代码生成的相关代码。可根据里面freemarker的配置生成相应的
 entity,dao,service,以及相关列表新增修改页面
 建议个性化的功能还是按照对应流程自己写
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -48,8 +48,8 @@ entity,dao,service,以及相关列表新增修改页面
 
 
 联系QQ：522123428
-后台演示地址：http://182.92.83.17:8080/thinkcms-company/admin
-前台演示地址：http://182.92.83.17:8080/thinkcms-company
+后台演示地址：http://182.92.83.17:8080/gxhdx-company/admin
+前台演示地址：http://182.92.83.17:8080/gxhdx-company
 测试用户：
 用户名：test
 密码：admin123

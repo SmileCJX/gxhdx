@@ -12,7 +12,7 @@
 <body>
 <header class="am-topbar am-topbar-inverse admin-header">
 <div class="am-topbar-brand">
-	<strong>Think CMS</strong> <small>后台管理</small>
+	<strong>高校活动行</strong> <small>后台管理</small>
 </div>
 
 <button
