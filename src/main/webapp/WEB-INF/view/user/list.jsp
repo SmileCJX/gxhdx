@@ -45,6 +45,14 @@
 		</table>
 		${list.pageStr }
 		<hr />
-		<p>注：.....</p>
+		<p>
+			<span class="am-icon-anchor"></span>&nbsp;&nbsp;注：
+		</p>
+		<p>
+			<span class="am-icon-lightbulb-o">&nbsp;&nbsp;默认用户名为部门拼音缩写+下划线+个人姓名缩写</span>
+		</p>
+		<p>
+			<span class="am-icon-lightbulb-o">&nbsp;&nbsp;默认密码为姓名拼音缩写+123456</span>
+		</p>
 	</form>
 </div>

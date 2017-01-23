@@ -55,6 +55,10 @@ public class UserServiceImpl implements UserService {
 			// 加密密码
 			passwordHelper.encryptPassword(oldUser);
 		}
+		if (user.getUserName() != null){
+			oldUser.setUserName(user.getUserName());
+		}
+
 		if (user.getNiceName() != null) {
 			oldUser.setNiceName(user.getNiceName());
 		}
