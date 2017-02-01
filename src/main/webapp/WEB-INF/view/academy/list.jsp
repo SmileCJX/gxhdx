@@ -6,11 +6,7 @@
 			<thead>
 				<tr>
 					<th class="table-check"><input type="checkbox" id="checkAll" onclick="selectAll();" /></th>
-					<th class="table-id">ID</th>
-					<th class="table-title">角色名称</th>
-					<th class="table-title">角色标识</th>
-					<th class="table-date am-hide-sm-only">显示顺序</th>
-					<th class="table-date am-hide-sm-only">是否可用</th>
+											<th class="table-date am-hide-sm-only">学院名称</th>
 					<th class="table-set">操作</th>
 				</tr>
 			</thead>
@@ -18,16 +14,12 @@
 				<c:forEach items="${list.items }" var="item">
 					<tr>
 						<td><input type="checkbox" name="checkitem" onclick="selectItem(this);" id="check${item.id }" value="${item.id }"/></td>
-						<td>${item.id }</td>
-						<td><a href="#">${item.description }</a></td>
-						<td><a href="#">${item.role }</a></td>
-						<td class="am-hide-sm-only">${item.showOrder }</td>
-						<td class="am-hide-sm-only">${item.available }</td>
+							<td>${item.academyName}</td>
 						<td>
 							<div class="am-btn-toolbar">
 								<div class="am-btn-group am-btn-group-xs">
 									<button type="button" class="am-btn am-btn-default am-text-secondary"
-										onclick="openWindow('role/edit?id=${item.id}','权限编辑');">
+										onclick="openWindow('academy/edit?id=${item.id}','编辑');">
 										<span class="am-icon-pencil-square-o"></span> 编辑
 									</button>
 									<button type="button" class="am-btn am-btn-default am-text-danger"
@@ -43,11 +35,6 @@
 		</table>
 		${list.pageStr }
 		<hr />
-		<p>
-			<span class="am-icon-anchor"></span>&nbsp;&nbsp;注：
-		</p>
-		<p>
-			<span class="am-icon-lightbulb-o">&nbsp;&nbsp;角色是权限集合</span>
-		</p>
+		<p>注：.....</p>
 	</form>
 </div>

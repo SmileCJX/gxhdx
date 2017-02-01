@@ -16,7 +16,6 @@ import com.gxhdx.support.PageDto;
 /**
  * @ClassName: ${className}DaoImpl
  * @Description: TODO(这里用一句话描述这个类的作用)
- * @author zhangp
  * 
  */
 @Component("<@lowerFC>${className}</@lowerFC>Dao")
@@ -29,13 +28,13 @@ public class ${className}DaoImpl extends BaseDao implements ${className}Dao {
 	}
 
 	public void del(Long id) {
-		String	sql = "delete from zq_<@lowerFC>${className}</@lowerFC> where id=?";
+		String	sql = "delete from hdx_<@lowerFC>${className}</@lowerFC> where id=?";
 		super.sqlUpdate(sql, id);
 	}
 
 	public void delBatch(String ids) {
 		// 删除该数据
-		String sql = "delete from zq_<@lowerFC>${className}</@lowerFC> where id in  (" + ids + ")";
+		String sql = "delete from hdx_<@lowerFC>${className}</@lowerFC> where id in  (" + ids + ")";
 		super.sqlUpdate(sql);
 	}
 

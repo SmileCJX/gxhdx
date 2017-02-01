@@ -36,7 +36,7 @@ public class Category implements Serializable {
 	private String url;
 	@Column(name = "blank")
 	private Boolean blank = Boolean.FALSE; // 是否打开新页签
-	@Transient
+	@Transient //表示该字段在数据库表中没有
 	private List<Category> childList;
 
 	

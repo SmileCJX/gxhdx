@@ -1,4 +1,4 @@
-package  ${package};  
+package  com.gxhdx.entity;  
   
 //这个地方可以事先定义好需要的类   
 import  java.util.Date;  
@@ -15,13 +15,13 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;  
 /** 
- * @ClassName: ${className} 
- * @Description: TODO(${className}实体类)
+ * @ClassName: Academy 
+ * @Description: TODO(Academy实体类)
  *  
  */  
 @Entity
-@Table(name = "hdx_<@lowerFC>${className}</@lowerFC>")
-public  class ${className}  implements  Serializable{  
+@Table(name = "hdx_academy")
+public  class Academy  implements  Serializable{  
 private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,10 +29,8 @@ private static final long serialVersionUID = 1L;
 	private Long id;   
 	@Column(name = "modify_date")
 	private Date modifyDate;   
-	<#list properties as pro>
-		@Column(name = "${pro.name}")  
-	    private  ${pro.type} ${pro.name};  
-	</#list>  
+		@Column(name = "academyName")  
+	    private  String academyName;  
 	
 	public Long getId() {
 		return id;
@@ -47,13 +45,11 @@ private static final long serialVersionUID = 1L;
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
 	}
-<#list properties as pro>  
-    public void set<@upperFC>${pro.name}</@upperFC>(${pro.type} ${pro.name}){  
-        this.${pro.name}=${pro.name};  
+    public void setAcademyName(String academyName){  
+        this.academyName=academyName;  
     }  
       
-    public ${pro.type} get<@upperFC>${pro.name}</@upperFC>(){  
-        return   this.${pro.name};  
+    public String getAcademyName(){  
+        return   this.academyName;  
     }  
-</#list>  
 } 

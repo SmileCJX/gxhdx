@@ -11,41 +11,15 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.*;
 
-public class Generate {
+public class AcademyGenerate {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void main(String[] args) {
 		Map data = new HashMap();
-		data.put("className", "Activity"); // 类名
-		data.put("classCnName", "活动管理"); // 中文名
+		data.put("className", "Academy"); // 类名
+		data.put("classCnName", "学院管理"); // 中文名
 		List pros = new ArrayList();
-		pros.add(new GenProperty("title", "活动标题", String.class.getSimpleName(),
-				"like",true));
-		pros.add(new GenProperty("content", "活动内容", String.class.getSimpleName(),
-				"like",true));
-		pros.add(new GenProperty("activityStartDate", "活动开始日期", Date.class.getSimpleName(),
-				"eq",true));
-		pros.add(new GenProperty("activityEndDate", "活动结束日期", Date.class.getSimpleName(),
-				"eq",true));
-		pros.add(new GenProperty("applyStartDate", "活动报名开始日期", Date.class.getSimpleName(),
-				"eq",true));
-		pros.add(new GenProperty("applyEndDate", "活动报名结束日期", Date.class.getSimpleName(),
-				"eq",true));
-		pros.add(new GenProperty("keyword", "活动关键字", String.class.getSimpleName(),
-				"like",true));
-		pros.add(new GenProperty("url", "活动相关连接", String.class.getSimpleName(),
-				"like",false));
-		pros.add(new GenProperty("depatement", "活动主办部门", String.class.getSimpleName(),
-				"eq",false));
-		pros.add(new GenProperty("sponsor", "活动承办人员", String.class.getSimpleName(),
-				"eq",true));
-		pros.add(new GenProperty("sponsorPhone", "活动承办人联系电话", String.class.getSimpleName(),
-				"eq",true));
-		pros.add(new GenProperty("hits", "浏览数", Integer.class.getSimpleName(),
-				"eq",false));
-		pros.add(new GenProperty("type", "活动类型", String.class.getSimpleName(),
-				"eq",true));
-		pros.add(new GenProperty("remark", "活动备注", String.class.getSimpleName(),
+		pros.add(new GenProperty("academyName", "学院名称", String.class.getSimpleName(),
 				"eq",true));
 		data.put("properties", pros);
 		createH(data);
@@ -55,7 +29,7 @@ public class Generate {
 	@SuppressWarnings({ "rawtypes" })
 	public static void createH(Map data) {
 		// 模拟数据源
-		String className = "Activity";
+		String className = "Academy";
 		
 		String dir;
 		/* 生成entity */
@@ -99,22 +73,22 @@ public class Generate {
 
 		/* 生成edit */
 		dir = System.getProperty("user.dir")
-				+ "/src/main/webapp/WEB-INF/view/activity/";// 生成路径
+				+ "/src/main/webapp/WEB-INF/view/academy/";// 生成路径
 		genPage(dir, "edit", "edit.html", data);
 		System.out.println("生成edit结束...");
 		/* 生成add */
 		dir = System.getProperty("user.dir")
-				+ "/src/main/webapp/WEB-INF/view/activity/";// 生成路径
+				+ "/src/main/webapp/WEB-INF/view/academy/";// 生成路径
 		genPage(dir, "add", "add.html", data);
 		System.out.println("生成add结束...");
 		/* 生成index */
 		dir = System.getProperty("user.dir")
-				+ "/src/main/webapp/WEB-INF/view/activity/";// 生成路径
+				+ "/src/main/webapp/WEB-INF/view/academy/";// 生成路径
 		genPage(dir, "index", "index.html", data);
 		System.out.println("生成index结束...");
 		/* 生成list */
 		dir = System.getProperty("user.dir")
-				+ "/src/main/webapp/WEB-INF/view/activity/";// 生成路径
+				+ "/src/main/webapp/WEB-INF/view/academy/";// 生成路径
 		genPage(dir, "list", "list.html", data);
 		System.out.println("生成list结束...");
 	}

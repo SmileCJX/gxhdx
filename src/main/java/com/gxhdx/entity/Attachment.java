@@ -26,7 +26,7 @@ public class Attachment implements Serializable {
 	private String fileName;
 	@Column(name = "file_type")
 	private String fileType;
-	@Column(name = "file_size",scale=1)
+	@Column(name = "file_size",scale=1)  //scale表示小数点所占的位数
 	private float fileSize;
 	@Column(name = "create_date")
 	private Date createDate;
