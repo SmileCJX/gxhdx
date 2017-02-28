@@ -1,8 +1,7 @@
 package  com.gxhdx.dao;  
 
-import java.util.List;
-import java.util.Date;
-
+import com.gxhdx.entity.ActivityType;
+import com.gxhdx.support.PageDto;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
@@ -10,8 +9,8 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import com.gxhdx.entity.ActivityType;
-import com.gxhdx.support.PageDto;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @ClassName: ActivityTypeDaoImpl
@@ -28,13 +27,13 @@ public class ActivityTypeDaoImpl extends BaseDao implements ActivityTypeDao {
 	}
 
 	public void del(Long id) {
-		String	sql = "delete from hdx_activityType where id=?";
+		String	sql = "delete from hdx_activity_type where id=?";
 		super.sqlUpdate(sql, id);
 	}
 
 	public void delBatch(String ids) {
 		// 删除该数据
-		String sql = "delete from hdx_activityType where id in  (" + ids + ")";
+		String sql = "delete from hdx_activity_type where id in  (" + ids + ")";
 		super.sqlUpdate(sql);
 	}
 
