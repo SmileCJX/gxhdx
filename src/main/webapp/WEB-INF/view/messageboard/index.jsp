@@ -46,9 +46,11 @@ display:inline-block
 					  </div>
   					 <div class="am-form-group" style="padding:10px;">
 				      <span >更新时间</span>
-				      <input type="text"  class="am-form-field" id="startDate" name="startDate" placeholder="起">
+				      <input type="text"  class="am-form-field" id="startDate" name="startDate" placeholder="起"
+							 data-am-datepicker readonly required>
 				      -
-				      <input type="text"  class="am-form-field" id="endDate" name="endDate" placeholder="止">
+				      <input type="text"  class="am-form-field" id="endDate" name="endDate" placeholder="止"
+							 data-am-datepicker readonly required>
 					  </div>
 					<br>
 					<div class="am-u-sm-8 ">
@@ -81,6 +83,14 @@ display:inline-block
 	<script type="text/javascript">
 		$(function() {
 			query();
+
+			//调用时间控件，并格式化输出
+			$('#startDate').datetimepicker({
+				format: 'yyyy-mm-dd',
+			});
+			$('#endDate').datetimepicker({
+				format: 'yyyy-mm-dd',
+			});
 		});
 		function query(pageNo,pageSize) {
 			$("#pageNo").val(pageNo);

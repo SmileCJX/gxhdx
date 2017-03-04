@@ -23,8 +23,8 @@
 		class="am-topbar am-topbar-inverse am-topbar-fixed-top headercolor"
 		id="header">
 		<div class="am-container">
-			<h1 class="am-topbar-brand am-text-ir">
-				<a href="http://amazeui.org/showcase/#">YY ZuQiu</a>
+			<h1 class="am-topbar-brand">
+				<a href="http://amazeui.org/showcase/#">高校活动行</a>
 			</h1>
 
 			<button
@@ -38,12 +38,12 @@
 				<ul class="am-nav am-nav-pills am-topbar-nav">
 					<li class="am-active"><a href="http://amazeui.org/showcase/#">首页</a>
 					</li>
-					<li><a href="http://amazeui.org/" target="_blank">球场</a></li>
-					<li><a href="http://t.amazeui.org/" target="_blank">球队</a>
+					<li><a href="http://amazeui.org/" target="_blank">活动精选</a></li>
+					<li><a href="http://t.amazeui.org/" target="_blank">高校通</a>
 					</li>
-					<li><a href="https://github.com/amazeui" target="_blank">球赛</a>
+					<li><a href="https://github.com/amazeui" target="_blank">校园百科</a>
 					</li>
-					<li><a href="http://ask.amazeui.org/" target="_blank">论坛</a></li>
+					<li><a href="http://ask.amazeui.org/" target="_blank">给我留言</a></li>
 					<li><a href="http://www.yunshipei.com/about/contacts.html"
 						target="_blank">联系我们</a></li>
 				</ul>
@@ -54,8 +54,8 @@
 	<!-- banner -->
 	<div class="bgimg ">
 		<div class="am-container">
-			<h1 class="am-animation-slide-right">专注业余足球场地信息收集整理,赛事活动组织</h1>
-			<h2 class="am-animation-scale-up">球场精选</h2>
+			<h1 class="am-animation-slide-right">专注高校活动信息收集整理,活动组织</h1>
+			<h2 class="am-animation-scale-up">活动精选</h2>
 		</div>
 	</div>
 
@@ -94,21 +94,21 @@
 		</div>
 	</article>
 	<footer>
-		<!-- <div data-am-widget="navbar"
-			class="am-navbar am-cf am-navbar-default " id="">
-			<ul class="am-navbar-nav am-cf am-avg-sm-4">
-				<li><a href="tel:123456789" class=""> <span
-						class="am-icon-phone"></span> <span class="am-navbar-label">呼叫</span>
-				</a></li>
-				<li data-am-navbar-share><a href="###" class=""> <span
-						class="am-icon-share-square-o"></span> <span
-						class="am-navbar-label">分享</span>
-				</a></li>
-				<li data-am-navbar-qrcode><a href="/" class=""> <span
-						class="am-icon-home"></span> <span class="am-navbar-label">首页</span>
-				</a></li>
-			</ul>
-		</div> -->
+		<%--<div data-am-widget="navbar"--%>
+			<%--class="am-navbar am-cf am-navbar-default " id="">--%>
+			<%--<ul class="am-navbar-nav am-cf am-avg-sm-4">--%>
+				<%--<li><a href="tel:123456789" class=""> <span--%>
+						<%--class="am-icon-phone"></span> <span class="am-navbar-label">呼叫</span>--%>
+				<%--</a></li>--%>
+				<%--<li data-am-navbar-share><a href="###" class=""> <span--%>
+						<%--class="am-icon-share-square-o"></span> <span--%>
+						<%--class="am-navbar-label">分享</span>--%>
+				<%--</a></li>--%>
+				<%--<li data-am-navbar-qrcode><a href="/" class=""> <span--%>
+						<%--class="am-icon-home"></span> <span class="am-navbar-label">首页</span>--%>
+				<%--</a></li>--%>
+			<%--</ul>--%>
+		<%--</div>--%>
 	</footer>
 	<!-- 返回顶部 -->
 	<div data-am-widget="gotop" class="am-gotop am-gotop-fixed">

@@ -10,9 +10,13 @@
 <link rel="stylesheet" type="text/css"
 	href='<c:url value="/static/css/amazeui.css"/>'>
 <link rel="stylesheet" type="text/css"
+	  href='<c:url value="/static/css/amazeui.datetimepicker.css"/>'>
+<link rel="stylesheet" type="text/css"
 	href='<c:url value="/static/css/football.style.css"/>'>
 
 <script type="text/javascript"
 	src="<c:url value="/static/js/jquery.min.js"/>"></script>
 <script type="text/javascript"
 	src="<c:url value="/static/js/amazeui.min.js"/>"></script>
+<script type="text/javascript"
+		src="<c:url value="/static/js/amazeui.datetimepicker.min.js"/>"></script>
