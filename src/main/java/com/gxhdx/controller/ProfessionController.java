@@ -84,6 +84,7 @@ public class ProfessionController {
 	public String toEdit(Long id, Model model) {
 		try {
 			Profession entity = professionService.getProfession(id);
+			model.addAttribute("academys",academyService.findAll());
 			model.addAttribute("entity", entity);
 		} catch (Exception e) {
 			e.printStackTrace();
