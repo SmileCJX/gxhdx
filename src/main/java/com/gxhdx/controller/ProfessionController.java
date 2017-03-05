@@ -1,6 +1,7 @@
 package com.gxhdx.controller;
 
 import com.gxhdx.entity.Profession;
+import com.gxhdx.service.AcademyService;
 import com.gxhdx.service.ProfessionService;
 import com.gxhdx.support.ReqDto;
 import com.gxhdx.support.Result;
@@ -21,6 +22,9 @@ import java.util.Date;
 public class ProfessionController {
 	@Autowired
 	private ProfessionService professionService;
+
+	@Autowired
+	private AcademyService academyService;
 
 	@RequiresPermissions({ "profession/list" })
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -58,15 +62,16 @@ public class ProfessionController {
 	@RequiresPermissions({ "profession/add" })
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String toAdd(Model model) {
+		model.addAttribute("academys",academyService.findAll());
 		return "profession/add";
 	}
 
 	@RequiresPermissions({ "profession/add" })
 	@ResponseBody
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public Object add(Profession entity, Model model) {
+	public Object add(Profession entity, Model model,Long academyId) {
 		try {
-			entity = professionService.saveOrUpdate(entity);
+			entity = professionService.saveOrUpdate(entity,academyId);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new Result(false, e);
@@ -90,9 +95,9 @@ public class ProfessionController {
 	@RequiresPermissions({ "profession/edit" })
 	@ResponseBody
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
-	public Object edit(Profession entity, Model model) {
+	public Object edit(Profession entity, Model model,Long academyId) {
 		try {
-			entity = professionService.saveOrUpdate(entity);
+			entity = professionService.saveOrUpdate(entity,academyId);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new Result(false, e);

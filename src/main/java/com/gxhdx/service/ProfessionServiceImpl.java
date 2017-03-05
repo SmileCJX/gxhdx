@@ -23,8 +23,8 @@ public class ProfessionServiceImpl implements ProfessionService {
 	private ProfessionDao professionDao;
 
 	@Transactional
-	public Profession saveOrUpdate(Profession entity) {
-		return professionDao.saveOrUpdate(entity);
+	public Profession saveOrUpdate(Profession entity,Long academyId) {
+		return professionDao.saveOrUpdate(entity,academyId);
 	}
 
 	@Transactional
@@ -43,7 +43,7 @@ public class ProfessionServiceImpl implements ProfessionService {
 	}
 
 	@Transactional
-	public PageDto<Profession> findList( String professionName,  Date startDate,Date endDate,Integer pageNo, Integer pageSize) {
+	public PageDto<Profession> findList(String professionName, Date startDate, Date endDate, Integer pageNo, Integer pageSize) {
 		return professionDao.findList(professionName, startDate,endDate,pageNo,pageSize);
 	}
 

@@ -1,28 +1,16 @@
 package com.gxhdx.dao;
 
-import java.io.Serializable;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import org.hibernate.Criteria;
-import org.hibernate.Hibernate;
-import org.hibernate.Query;
-import org.hibernate.SQLQuery;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Example;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Projection;
-import org.hibernate.criterion.ProjectionList;
-import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Restrictions;
+import org.hibernate.*;
+import org.hibernate.criterion.*;
 import org.hibernate.transform.ResultTransformer;
 import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.io.Serializable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -305,6 +293,17 @@ public class BaseDao {
 	public <T> List<T> findByCriteria(DetachedCriteria dc, int firstResult, int maxResults) {
 		dc.setProjection(null);//清除count引起的dc.setProjection(Projections.rowCount());
 		Criteria c = dc.getExecutableCriteria(getSession());
+		c.setFirstResult(firstResult);
+		c.setMaxResults(maxResults);
+		return c.list();
+	}
+
+	/** Criteria分页查询.<ul><li>不限于某个实体，可查询任何对象</li></ul> */
+	public <T> List<T> findByRootEntityCriteria(DetachedCriteria dc, int firstResult, int maxResults) {
+		dc.setProjection(null);//清除count引起的dc.setProjection(Projections.rowCount());
+		Criteria c = dc.getExecutableCriteria(getSession());
+		c.setProjection(null);
+		c.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
 		c.setFirstResult(firstResult);
 		c.setMaxResults(maxResults);
 		return c.list();

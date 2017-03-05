@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface ProfessionDao {
 
-	public Profession saveOrUpdate(Profession article);
+	public Profession saveOrUpdate(Profession article,Long academyId);
 
 	public void del(Long id);
 
@@ -23,6 +23,6 @@ public interface ProfessionDao {
 
 	public List<Profession> findAll();
 
-	public PageDto<Profession> findList( String professionName,  Date startDate,Date endDate,Integer pageNo, Integer pageSize);
+	public PageDto<Profession> findList(String professionName, Date startDate, Date endDate, Integer pageNo, Integer pageSize);
 
 }

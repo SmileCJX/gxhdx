@@ -28,6 +28,31 @@
 									placeholder="专业名称/ professionName"  required="required" >
 							</div>
 						</div>
+
+						<div class="am-form-group">
+							<label for="user-name" class="am-u-sm-3 am-form-label"> 学院名称
+								/  AcademyName</label>
+							<div class="am-u-sm-9">
+								<select class="form-control" id="academyId" name="academyId">
+									<%--<option value="1">会计学院</option>--%>
+									<%--<option value="2">工商管理学院</option>--%>
+									<%--<option value="3">经济贸易学院</option>--%>
+									<%--<option value="4">金融学院</option>--%>
+									<%--<option value="5">设计与创意学院</option>--%>
+									<%--<option value="6">法学院</option>--%>
+									<%--<option value="7">公共管理学院</option>--%>
+									<%--<option value="8">电子信息科学学院</option>--%>
+									<%--<option value="9">工程学院</option>--%>
+									<%--<option value="10">海峡财经学院</option>--%>
+									<%--<option value="11">国际教育学院</option>--%>
+									<c:forEach var="value" items="${academys}">
+										<option value="${value.id}">
+												${value.academyName}
+										</option>
+									</c:forEach>
+								</select>
+							</div>
+						</div>
 					
 						<div class="am-form-group">
 							<div class="am-u-sm-9 am-u-sm-push-3">
