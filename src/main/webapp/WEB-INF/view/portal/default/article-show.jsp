@@ -12,13 +12,25 @@
 <body>
 	<%@ include file="/WEB-INF/view/portal/default/header.jsp"%>
 	<%@ include file="/WEB-INF/view/portal/default/top.jsp"%>
-	<br>
-	<div class=" am-container">${article.content }</div>
-	<hr>
-	<div data-am-widget="gotop" class="am-gotop am-gotop-fixed" >
-		<a href="#top" title="">
-			<i class="am-gotop-icon am-icon-hand-o-up"></i>
-		</a>
+	<div class="am-container">
+		<article class="am-article">
+		<div class="am-article-hd">
+			<br>
+			<h1 class="am-article-title">${entity.title }</h1>
+			<br>
+			<p class="am-article-meta">作者：${entity.author }</p>
+			<br>
+			<p class="am-article-meta">发布日期：${entity.createDate }</p>
+			<br>
+		</div>
+
+		<div class="am-article-bd">
+			<p class="am-article-lead">摘要：${entity.remark }</p>
+			<hr>
+			${entity.content }
+			<hr>
+		</div>
+		</article>
 	</div>
 	<%@ include file="/WEB-INF/view/portal/default/footer.jsp"%>
 </body>

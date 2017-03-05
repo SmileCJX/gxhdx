@@ -1,7 +1,10 @@
 package com.gxhdx.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
+import com.gxhdx.entity.Article;
+import com.gxhdx.entity.Category;
+import com.gxhdx.entity.SiteInfo;
+import com.gxhdx.service.*;
+import com.gxhdx.support.PageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,16 +12,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.gxhdx.entity.Article;
-import com.gxhdx.entity.Category;
-import com.gxhdx.entity.SiteInfo;
-import com.gxhdx.service.ArticleService;
-import com.gxhdx.service.CategoryService;
-import com.gxhdx.service.FriendshipLinkService;
-import com.gxhdx.service.SiteInfoService;
-import com.gxhdx.service.SlideImgService;
-import com.gxhdx.service.StadiumService;
-import com.gxhdx.support.PageDto;
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class PortalController {
@@ -88,7 +82,7 @@ public class PortalController {
 	public String listCase(Model model, Long id, Long categoryId) {
 		model.addAttribute("entity", articleService.getArticle(id));
 		model.addAttribute("category", categoryService.getCategory(categoryId));
-		return "portal/"+template+"article-show";
+		return "portal/"+template+"/article-show";
 	}
 
 }

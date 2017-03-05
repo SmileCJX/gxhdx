@@ -1,8 +1,11 @@
 package com.gxhdx.controller;
 
-import java.util.Date;
-import java.util.List;
-
+import com.gxhdx.entity.Article;
+import com.gxhdx.entity.Category;
+import com.gxhdx.service.ArticleService;
+import com.gxhdx.service.CategoryService;
+import com.gxhdx.support.ReqDto;
+import com.gxhdx.support.Result;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,12 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.gxhdx.entity.Article;
-import com.gxhdx.entity.Category;
-import com.gxhdx.service.ArticleService;
-import com.gxhdx.service.CategoryService;
-import com.gxhdx.support.ReqDto;
-import com.gxhdx.support.Result;
+import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/article")
@@ -179,4 +178,5 @@ public class ArticleController {
 		stringBuffer.append(" ] }] ");
 		return stringBuffer.toString();
 	}
+
 }
