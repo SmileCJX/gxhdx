@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -20,7 +21,7 @@
 			<br>
 			<p class="am-article-meta">作者：${entity.author }</p>
 			<br>
-			<p class="am-article-meta">发布日期：${entity.createDate }</p>
+			<p class="am-article-meta">发布日期：<fmt:formatDate value="${entity.createDate}" pattern="yyyy年MM月dd日 E"/></p>
 			<br>
 		</div>
 
