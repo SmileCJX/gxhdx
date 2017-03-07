@@ -42,46 +42,6 @@
 					
 	
 						<div class="am-form-group">
-							<label for="user-name" class="am-u-sm-3 am-form-label"> 活动开始日期
-								/  activityStartDate</label>
-							<div class="am-u-sm-9">
-								<input type="text" id="activityStartDate" name="activityStartDate" value="${entity.activityStartDate}"
-									placeholder="活动开始日期/ activityStartDate" required="required">
-							</div>
-						</div>
-					
-	
-						<div class="am-form-group">
-							<label for="user-name" class="am-u-sm-3 am-form-label"> 活动结束日期
-								/  activityEndDate</label>
-							<div class="am-u-sm-9">
-								<input type="text" id="activityEndDate" name="activityEndDate" value="${entity.activityEndDate}"
-									placeholder="活动结束日期/ activityEndDate" required="required">
-							</div>
-						</div>
-					
-	
-						<div class="am-form-group">
-							<label for="user-name" class="am-u-sm-3 am-form-label"> 活动报名开始日期
-								/  applyStartDate</label>
-							<div class="am-u-sm-9">
-								<input type="text" id="applyStartDate" name="applyStartDate" value="${entity.applyStartDate}"
-									placeholder="活动报名开始日期/ applyStartDate" required="required">
-							</div>
-						</div>
-					
-	
-						<div class="am-form-group">
-							<label for="user-name" class="am-u-sm-3 am-form-label"> 活动报名结束日期
-								/  applyEndDate</label>
-							<div class="am-u-sm-9">
-								<input type="text" id="applyEndDate" name="applyEndDate" value="${entity.applyEndDate}"
-									placeholder="活动报名结束日期/ applyEndDate" required="required">
-							</div>
-						</div>
-					
-	
-						<div class="am-form-group">
 							<label for="user-name" class="am-u-sm-3 am-form-label"> 活动关键字
 								/  keyword</label>
 							<div class="am-u-sm-9">
@@ -99,14 +59,39 @@
 									placeholder="活动相关连接/ url" required="">
 							</div>
 						</div>
-					
-	
+
+
 						<div class="am-form-group">
 							<label for="user-name" class="am-u-sm-3 am-form-label"> 活动主办部门
-								/  depatement</label>
+								/  Name</label>
 							<div class="am-u-sm-9">
-								<input type="text" id="depatement" name="depatement" value="${entity.depatement}"
-									placeholder="活动主办部门/ depatement" required="">
+								<select class="form-control" id="department_id" name="department_id">
+									<option value="${entity.department.id}" selected>
+										${entity.department.name}
+									</option>
+									<c:forEach var="value" items="${departments}">
+										<option value="${value.id}">
+												${value.name}
+										</option>
+									</c:forEach>
+								</select>
+							</div>
+						</div>
+
+						<div class="am-form-group">
+							<label for="user-name" class="am-u-sm-3 am-form-label"> 活动类型
+								/  typeName</label>
+							<div class="am-u-sm-9">
+								<select class="form-control" id="activitytype_id" name="activitytype_id">
+									<option value="${entity.activityType.id}" selected>
+										${entity.activityType.typeName}
+									</option>
+									<c:forEach var="value" items="${activityTypes}">
+										<option value="${value.id}">
+												${value.typeName}
+										</option>
+									</c:forEach>
+								</select>
 							</div>
 						</div>
 					
@@ -142,21 +127,34 @@
 					
 	
 						<div class="am-form-group">
-							<label for="user-name" class="am-u-sm-3 am-form-label"> 活动类型
-								/  type</label>
-							<div class="am-u-sm-9">
-								<input type="text" id="type" name="type" value="${entity.type}"
-									placeholder="活动类型/ type" required="required">
-							</div>
-						</div>
-					
-	
-						<div class="am-form-group">
 							<label for="user-name" class="am-u-sm-3 am-form-label"> 活动备注
 								/  remark</label>
 							<div class="am-u-sm-9">
 								<input type="text" id="remark" name="remark" value="${entity.remark}"
 									placeholder="活动备注/ remark" required="required">
+							</div>
+						</div>
+
+
+						<div class="am-form-group">
+							<label for="user-weibo" class="am-u-sm-3 am-form-label">是否可用
+								/ Available</label>
+							<div class="am-u-sm-9 am-form-select">
+								<select  id="available"
+										 name="available">
+									<option value="1" <c:if test="${entity.available}">selected="selected"</c:if>>可用</option>
+									<option value="0" <c:if test="${!entity.available}">selected="selected"</c:if>>禁用</option>
+								</select>
+							</div>
+						</div>
+					
+	
+						<div class="am-form-group">
+							<label for="user-name" class="am-u-sm-3 am-form-label"> 活动图片
+								/  imgUrl</label>
+							<div class="am-u-sm-9">
+								<input type="text" id="imgUrl" name="imgUrl" value="${entity.imgUrl}"
+									placeholder="活动图片/ imgUrl" required="required">
 							</div>
 						</div>
 					

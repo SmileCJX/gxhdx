@@ -136,7 +136,7 @@ public class TeacherGenerate {
 			if ("controller".equals(type)) {
 				className += "Controller";
 			}
-//			cfg.setClassForTemplateLoading(Generate.class,
+//			cfg.setClassForTemplateLoading(ActivityGenerate.class,
 //					"/com/gxhdx/gencode/template"); // 指定模板所在的classpath目录
 			// Set the preferred charset template files are stored in. UTF-8 is
 			// a good choice in most applications:
@@ -168,7 +168,7 @@ public class TeacherGenerate {
 
 		try {
 
-//			cfg.setClassForTemplateLoading(Generate.class,
+//			cfg.setClassForTemplateLoading(ActivityGenerate.class,
 //					"/com/gxhdx/gencode/template"); // 指定模板所在的classpath目录
 //			cfg.setDirectoryForTemplateLoading(new File("\\template"));
 			// Set the preferred charset template files are stored in. UTF-8 is

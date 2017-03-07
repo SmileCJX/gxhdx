@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.*;
 
-public class Generate {
+public class ActivityGenerate {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void main(String[] args) {
@@ -23,14 +23,6 @@ public class Generate {
 				"like",true));
 		pros.add(new GenProperty("content", "活动内容", String.class.getSimpleName(),
 				"like",true));
-		pros.add(new GenProperty("activityStartDate", "活动开始日期", Date.class.getSimpleName(),
-				"eq",true));
-		pros.add(new GenProperty("activityEndDate", "活动结束日期", Date.class.getSimpleName(),
-				"eq",true));
-		pros.add(new GenProperty("applyStartDate", "活动报名开始日期", Date.class.getSimpleName(),
-				"eq",true));
-		pros.add(new GenProperty("applyEndDate", "活动报名结束日期", Date.class.getSimpleName(),
-				"eq",true));
 		pros.add(new GenProperty("keyword", "活动关键字", String.class.getSimpleName(),
 				"like",true));
 		pros.add(new GenProperty("url", "活动相关连接", String.class.getSimpleName(),
@@ -43,9 +35,11 @@ public class Generate {
 				"eq",true));
 		pros.add(new GenProperty("hits", "浏览数", Integer.class.getSimpleName(),
 				"eq",false));
-		pros.add(new GenProperty("type", "活动类型", String.class.getSimpleName(),
-				"eq",true));
 		pros.add(new GenProperty("remark", "活动备注", String.class.getSimpleName(),
+				"eq",true));
+		pros.add(new GenProperty("available", "是否有效", Boolean.class.getSimpleName(),
+				"eq",true));
+		pros.add(new GenProperty("imgUrl", "活动图片", String.class.getSimpleName(),
 				"eq",true));
 		data.put("properties", pros);
 		createH(data);
@@ -141,7 +135,7 @@ public class Generate {
 			if ("controller".equals(type)) {
 				className += "Controller";
 			}
-//			cfg.setClassForTemplateLoading(Generate.class,
+//			cfg.setClassForTemplateLoading(ActivityGenerate.class,
 //					"/com/gxhdx/gencode/template"); // 指定模板所在的classpath目录
 			// Set the preferred charset template files are stored in. UTF-8 is
 			// a good choice in most applications:
@@ -173,7 +167,7 @@ public class Generate {
 
 		try {
 
-//			cfg.setClassForTemplateLoading(Generate.class,
+//			cfg.setClassForTemplateLoading(ActivityGenerate.class,
 //					"/com/gxhdx/gencode/template"); // 指定模板所在的classpath目录
 //			cfg.setDirectoryForTemplateLoading(new File("\\template"));
 			// Set the preferred charset template files are stored in. UTF-8 is

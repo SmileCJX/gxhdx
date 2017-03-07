@@ -2,6 +2,8 @@ package com.gxhdx.controller;
 
 import com.gxhdx.entity.Activity;
 import com.gxhdx.service.ActivityService;
+import com.gxhdx.service.ActivityTypeService;
+import com.gxhdx.service.DepartmentService;
 import com.gxhdx.support.ReqDto;
 import com.gxhdx.support.Result;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -22,6 +24,12 @@ public class ActivityController {
 	@Autowired
 	private ActivityService activityService;
 
+	@Autowired
+	private ActivityTypeService activityTypeService;
+
+	@Autowired
+	private DepartmentService departmentService;
+
 	@RequiresPermissions({ "activity/list" })
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String index(Model model) {
@@ -30,7 +38,7 @@ public class ActivityController {
 
 	@RequiresPermissions({ "activity/list" })
 	@RequestMapping(value = "/list", method = RequestMethod.POST)
-	public String list(String title, String content, Date activityStartDate, Date activityEndDate, Date applyStartDate, Date applyEndDate, String keyword, String url, String depatement, String sponsor, String sponsorPhone, Integer hits, String type, String remark, String startDate, String endDate,ReqDto req, Model model) {
+	public String list(String title, String content, String keyword, String url, String depatement, String sponsor, String sponsorPhone, Integer hits, String remark, Boolean available, String imgUrl, String startDate, String endDate,ReqDto req, Model model) {
 		try {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Date sDate = null;
@@ -47,7 +55,7 @@ public class ActivityController {
 			}
 			model.addAttribute(
 					"list",
-					activityService.findList(title, content, activityStartDate, activityEndDate, applyStartDate, applyEndDate, keyword, url, depatement, sponsor, sponsorPhone, hits, type, remark, sDate,eDate,req.getPageNo(), req.getPageSize()));
+					activityService.findList(title, content, keyword, url, depatement, sponsor, sponsorPhone, hits, remark, available, imgUrl, sDate,eDate,req.getPageNo(), req.getPageSize()));
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "common/error";
@@ -58,15 +66,17 @@ public class ActivityController {
 	@RequiresPermissions({ "activity/add" })
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String toAdd(Model model) {
+		model.addAttribute("departments",departmentService.findAll());
+		model.addAttribute("activityTypes",activityTypeService.findAll());
 		return "activity/add";
 	}
 
 	@RequiresPermissions({ "activity/add" })
 	@ResponseBody
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public Object add(Activity entity, Model model) {
+	public Object add(Activity entity, Model model,Long department_id,Long activityType_id) {
 		try {
-			entity = activityService.saveOrUpdate(entity);
+			entity = activityService.saveOrUpdate(entity,department_id,activityType_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new Result(false, e);
@@ -79,6 +89,8 @@ public class ActivityController {
 	public String toEdit(Long id, Model model) {
 		try {
 			Activity entity = activityService.getActivity(id);
+			model.addAttribute("departments",departmentService.findAll());
+			model.addAttribute("activityTypes",activityTypeService.findAll());
 			model.addAttribute("entity", entity);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -90,9 +102,9 @@ public class ActivityController {
 	@RequiresPermissions({ "activity/edit" })
 	@ResponseBody
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
-	public Object edit(Activity entity, Model model) {
+	public Object edit(Activity entity, Model model,Long department_id,Long activitytype_id) {
 		try {
-			entity = activityService.saveOrUpdate(entity);
+			entity = activityService.saveOrUpdate(entity,department_id,activitytype_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new Result(false, e);

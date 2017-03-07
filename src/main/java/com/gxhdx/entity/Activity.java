@@ -19,34 +19,34 @@ private static final long serialVersionUID = 1L;
 	private Long id;   
 	@Column(name = "modify_date")
 	private Date modifyDate;   
-		@Column(name = "title")  
-	    private  String title;  
-		@Column(name = "content")  
-	    private  String content;
-		@Column(name = "activityStartDate")  
-	    private  Date activityStartDate;  
-		@Column(name = "activityEndDate")  
-	    private  Date activityEndDate;  
-		@Column(name = "applyStartDate")  
-	    private  Date applyStartDate;  
-		@Column(name = "applyEndDate")  
-	    private  Date applyEndDate;  
-		@Column(name = "keyword")  
-	    private  String keyword;  
-		@Column(name = "url")  
-	    private  String url;  
-		@Column(name = "depatement")  
-	    private  String depatement;  
-		@Column(name = "sponsor")  
-	    private  String sponsor;  
-		@Column(name = "sponsorPhone")  
-	    private  String sponsorPhone;  
-		@Column(name = "hits")  
-	    private  Integer hits;  
-		@Column(name = "type")  
-	    private  String type;  
-		@Column(name = "remark")  
-	    private  String remark;  
+    @Column(name = "title")
+    private  String title;
+    @Column(name = "content")
+    private  String content;
+    @Column(name = "keyword")
+    private  String keyword;
+    @Column(name = "url")
+    private  String url;
+    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH},
+            fetch = FetchType.EAGER,optional = false)
+    @JoinColumn(name = "department_id",referencedColumnName = "id")
+    private  Department department;
+    @Column(name = "sponsor")
+    private  String sponsor;
+    @Column(name = "sponsor_phone")
+    private  String sponsorPhone;
+    @Column(name = "hits")
+    private  Integer hits;
+    @Column(name = "remark")
+    private  String remark;
+    @Column(name = "available")
+    private  Boolean available = Boolean.FALSE;
+    @Column(name = "img_url")
+    private  String imgUrl;
+    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH},
+            fetch = FetchType.EAGER,optional = false)
+    @JoinColumn(name = "activity_id",referencedColumnName = "id")
+    private ActivityType activityType;
 	
 	public Long getId() {
 		return id;
@@ -75,34 +75,6 @@ private static final long serialVersionUID = 1L;
     public String getContent(){  
         return   this.content;  
     }  
-    public void setActivityStartDate(Date activityStartDate){  
-        this.activityStartDate=activityStartDate;  
-    }  
-      
-    public Date getActivityStartDate(){  
-        return   this.activityStartDate;  
-    }  
-    public void setActivityEndDate(Date activityEndDate){  
-        this.activityEndDate=activityEndDate;  
-    }  
-      
-    public Date getActivityEndDate(){  
-        return   this.activityEndDate;  
-    }  
-    public void setApplyStartDate(Date applyStartDate){  
-        this.applyStartDate=applyStartDate;  
-    }  
-      
-    public Date getApplyStartDate(){  
-        return   this.applyStartDate;  
-    }  
-    public void setApplyEndDate(Date applyEndDate){  
-        this.applyEndDate=applyEndDate;  
-    }  
-      
-    public Date getApplyEndDate(){  
-        return   this.applyEndDate;  
-    }  
     public void setKeyword(String keyword){  
         this.keyword=keyword;  
     }  
@@ -117,13 +89,7 @@ private static final long serialVersionUID = 1L;
     public String getUrl(){  
         return   this.url;  
     }  
-    public void setDepatement(String depatement){  
-        this.depatement=depatement;  
-    }  
-      
-    public String getDepatement(){  
-        return   this.depatement;  
-    }  
+
     public void setSponsor(String sponsor){  
         this.sponsor=sponsor;  
     }  
@@ -145,40 +111,41 @@ private static final long serialVersionUID = 1L;
     public Integer getHits(){  
         return   this.hits;  
     }  
-    public void setType(String type){  
-        this.type=type;  
-    }  
-      
-    public String getType(){  
-        return   this.type;  
-    }  
     public void setRemark(String remark){  
         this.remark=remark;  
     }  
       
     public String getRemark(){  
         return   this.remark;  
+    }  
+    public void setAvailable(Boolean available){  
+        this.available=available;  
+    }  
+      
+    public Boolean getAvailable(){  
+        return   this.available;  
+    }  
+    public void setImgUrl(String imgUrl){  
+        this.imgUrl=imgUrl;  
+    }  
+      
+    public String getImgUrl(){  
+        return   this.imgUrl;  
     }
 
-    @Override
-    public String toString() {
-        return "Activity{" +
-                "id=" + id +
-                ", modifyDate=" + modifyDate +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", activityStartDate=" + activityStartDate +
-                ", activityEndDate=" + activityEndDate +
-                ", applyStartDate=" + applyStartDate +
-                ", applyEndDate=" + applyEndDate +
-                ", keyword='" + keyword + '\'' +
-                ", url='" + url + '\'' +
-                ", depatement='" + depatement + '\'' +
-                ", sponsor='" + sponsor + '\'' +
-                ", sponsorPhone='" + sponsorPhone + '\'' +
-                ", hits=" + hits +
-                ", type='" + type + '\'' +
-                ", remark='" + remark + '\'' +
-                '}';
+    public ActivityType getActivityType() {
+        return activityType;
+    }
+
+    public void setActivityType(ActivityType activityType) {
+        this.activityType = activityType;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }

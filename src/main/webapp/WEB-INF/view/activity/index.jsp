@@ -41,28 +41,8 @@ display:inline-block
 					      <input type="text"  class="am-form-field" id="content" name="content" placeholder="活动内容">
 					  </div>
 					  <div class="am-form-group">
-					      <span >活动开始日期</span>
-					      <input type="text"  class="am-form-field" id="activityStartDate" name="activityStartDate" placeholder="活动开始日期">
-					  </div>
-					  <div class="am-form-group">
-					      <span >活动结束日期</span>
-					      <input type="text"  class="am-form-field" id="activityEndDate" name="activityEndDate" placeholder="活动结束日期">
-					  </div>
-					  <div class="am-form-group">
-					      <span >活动报名开始日期</span>
-					      <input type="text"  class="am-form-field" id="applyStartDate" name="applyStartDate" placeholder="活动报名开始日期">
-					  </div>
-					  <div class="am-form-group">
-					      <span >活动报名结束日期</span>
-					      <input type="text"  class="am-form-field" id="applyEndDate" name="applyEndDate" placeholder="活动报名结束日期">
-					  </div>
-					  <div class="am-form-group">
 					      <span >活动关键字</span>
 					      <input type="text"  class="am-form-field" id="keyword" name="keyword" placeholder="活动关键字">
-					  </div>
-					  <div class="am-form-group">
-					      <span >活动相关连接</span>
-					      <input type="text"  class="am-form-field" id="url" name="url" placeholder="活动相关连接">
 					  </div>
 					  <div class="am-form-group">
 					      <span >活动主办部门</span>
@@ -77,23 +57,17 @@ display:inline-block
 					      <input type="text"  class="am-form-field" id="sponsorPhone" name="sponsorPhone" placeholder="活动承办人联系电话">
 					  </div>
 					  <div class="am-form-group">
-					      <span >浏览数</span>
-					      <input type="text"  class="am-form-field" id="hits" name="hits" placeholder="浏览数">
+					      <span >是否有效</span>
+					      <input type="text"  class="am-form-field" id="available" name="available" placeholder="是否有效">
 					  </div>
-					  <div class="am-form-group">
-					      <span >活动类型</span>
-					      <input type="text"  class="am-form-field" id="type" name="type" placeholder="活动类型">
-					  </div>
-					  <div class="am-form-group">
-					      <span >活动备注</span>
-					      <input type="text"  class="am-form-field" id="remark" name="remark" placeholder="活动备注">
-					  </div>
-  					 <div class="am-form-group" style="padding:10px;">
-				      <span >更新时间</span>
-				      <input type="text"  class="am-form-field" id="startDate" name="startDate" placeholder="起">
-				      -
-				      <input type="text"  class="am-form-field" id="endDate" name="endDate" placeholder="止">
-					  </div>
+					<div class="am-form-group" style="padding:10px;">
+						<span >更新时间</span>
+						<input type="text"  class="am-form-field" id="startDate" name="startDate" placeholder="起"
+							   data-am-datepicker readonly required>
+						-
+						<input type="text"  class="am-form-field" id="endDate" name="endDate" placeholder="止"
+							   data-am-datepicker readonly required>
+					</div>
 					<br>
 					<div class="am-u-sm-8 ">
 					 	 	<button type="button" class="am-btn am-btn-secondary"
@@ -125,6 +99,14 @@ display:inline-block
 	<script type="text/javascript">
 		$(function() {
 			query();
+
+			//调用时间控件，并格式化输出
+			$('#startDate').datetimepicker({
+				format: 'yyyy-mm-dd',
+			});
+			$('#endDate').datetimepicker({
+				format: 'yyyy-mm-dd',
+			});
 		});
 		function query(pageNo,pageSize) {
 			$("#pageNo").val(pageNo);
@@ -132,18 +114,18 @@ display:inline-block
 			var data = $("#form").serialize();
 			data = decodeURIComponent(data, true);
 			$.ajax({
-				url : 'activity/list',
-				type : 'post',
-				data :data,
-				cache : false,
-				contentType : "application/x-www-form-urlencoded; charset=utf-8",
-				success : function(html) {
-					$('#list').html(html);
-				},
-				error : function() {
-					layer.msg('系统异常');
-				}
-			});
+						url : 'activity/list',
+						type : 'post',
+						data :data,
+						cache : false,
+						contentType : "application/x-www-form-urlencoded; charset=utf-8",
+						success : function(html) {
+							$('#list').html(html);
+						},
+						error : function() {
+							layer.msg('系统异常');
+						}
+					});
 		}
 		function del(id) {
 			if (!id) {
@@ -160,34 +142,34 @@ display:inline-block
 				}
 			}
 			layer.msg('你确定要删除么？', {
-				time: 0 //不自动关闭
-				,btn: ['确定', '取消']
-				,yes: function(index){
-
-					$.ajax({
-						url : 'stadium/del',
-						type : 'post',
-						data : {
-							ids : id
-						},
-						cache : false,
-						contentType : "application/x-www-form-urlencoded; charset=utf-8",
-						success : function(html) {
-							if (html.success) {
-								layer.msg("删除成功");
-								query();
-							} else {
-								layer.msg('删除失败');
+				  time: 0 //不自动关闭
+				  ,btn: ['确定', '取消']
+				  ,yes: function(index){
+					 
+					  $.ajax({
+							url : 'activity/del',
+							type : 'post',
+							data : {
+								ids : id
+							},
+							cache : false,
+							contentType : "application/x-www-form-urlencoded; charset=utf-8",
+							success : function(html) {
+								if (html.success) {
+									layer.msg("删除成功");
+									query();
+								} else {
+									layer.msg('删除失败');
+								}
+							},
+							error : function() {
+								layer.msg('系统异常');
 							}
-						},
-						error : function() {
-							layer.msg('系统异常');
-						}
-					});//end ajax
-
-				}//end yes function
-			});//end layer.msg
-
+						});//end ajax
+					  
+				  }//end yes function
+				});//end layer.msg
+			
 		}
 		function selectAll() {
 			$('input:checkbox').prop("checked",
