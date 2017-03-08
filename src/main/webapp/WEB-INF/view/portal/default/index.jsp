@@ -20,44 +20,13 @@
 			</ul>
 		</div>
 	</div>
-	<div class="am-container-1">
-		<div class="solutions part-all">
-			<div class="part-title">
-				<a href="solutions.html"> <i
-					class="am-icon-lightbulb-o part-title-i"></i> <span
-					class="part-title-span">解决方案</span>
-					<p>Solutions</p>
-				</a>
-			</div>
-			<ul class="am-g part-content solutions-content">
-				<li class="am-u-sm-6 am-u-md-3 am-u-lg-3"><i
-					class="am-icon-safari solution-circle"></i> <span
-					class="solutions-title">网站、移动网站</span>
-					<p class="solutions-way">微信公众号开发移动网站微信公众号开发</p></li>
-				<li class="am-u-sm-6 am-u-md-3 am-u-lg-3"><i
-					class="am-icon-magic solution-circle"></i> <span
-					class="solutions-title">网站、移动网站</span>
-					<p class="solutions-way">移动网站微信公众号开发移动网站微信公众号开发,解决方案</p></li>
-				<li class="am-u-sm-6 am-u-md-3 am-u-lg-3"><i
-					class="am-icon-phone solution-circle"></i> <span
-					class="solutions-title">网站、移动网站</span>
-					<p class="solutions-way">移动网站微信公众号开发移动网站微信公众号开发</p></li>
-				<li class="am-u-sm-6 am-u-md-3 am-u-lg-3"><i
-					class="am-icon-hacker-news solution-circle"></i> <span
-					class="solutions-title">网站、移动网站</span>
-					<p class="solutions-way">网站、移动网站微信公众号开发移动网站微信公众号开发,解决方案</p></li>
-
-			</ul>
-
-		</div>
-	</div>
 	<div class="gray-li">
 		<div class="customer-case part-all ">
 			<div class="part-title">
 				<a href="customer-case.html"> <i
 					class=" am-icon-briefcase part-title-i"></i> <span
-					class="part-title-span">客户案例</span>
-					<p>Customer Case</p>
+					class="part-title-span">活动精选</span>
+					<p>Activity Best</p>
 				</a>
 			</div>
 
@@ -67,124 +36,101 @@
   am-avg-md-4 am-avg-lg-4 am-gallery-bordered customer-case-content">
 				<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
 					<div class="am-gallery-item case-img1">
-						<a href="#"> <img src='<c:url value="/static/image/portal/default/app1.png"/>' />
-
+						<a href="#"> <img src='<c:url value="/static/image/portal/default/study1.png"/>' />
 						</a>
 					</div>
 					<div class="case-li-mengban">
 						<div class=" case-word">
-							<h3 class="am-gallery-title">响应式商城</h3>
-							<p>2015-06-11</p>
+							<h3 class="am-gallery-title">理论学习</h3>
 							<a><span><i class="am-icon-eye"></i>查看更多</span></a>
 						</div>
 					</div>
 				</li>
 				<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
 					<div class="am-gallery-item case-img1">
-						<a href="#"> <img src='<c:url value="/static/image/portal/default/app2.png"/>' />
+						<a href="#"> <img src='<c:url value="/static/image/portal/default/cxkj.png"/>' />
 						</a>
 					</div>
 					<div class="case-li-mengban">
 						<div class=" case-word">
-							<h3 class="am-gallery-title">物流红娘</h3>
-							<p>2015-06-11</p>
+							<h3 class="am-gallery-title">创业科技</h3>
 							<a><span><i class="am-icon-eye"></i>查看更多</span></a>
 						</div>
 					</div>
 				</li>
 				<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
 					<div class="am-gallery-item case-img1">
-						<a href="#"> <img src='<c:url value="/static/image/portal/default/app3.png"/>' />
+						<a href="#"> <img src='<c:url value="/static/image/portal/default/gysj.png"/>' />
 						</a>
 					</div>
 					<div class="case-li-mengban">
 						<div class=" case-word">
-							<h3 class="am-gallery-title">车型湖北</h3>
-							<p>2015-06-11</p>
+							<h3 class="am-gallery-title">公益实践</h3>
 							<a><span><i class="am-icon-eye"></i>查看更多</span></a>
 						</div>
 					</div>
 				</li>
 				<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
 					<div class="am-gallery-item case-img1">
-						<a href="#"> <img src='<c:url value="/static/image/portal/default/app4.png"/>' />
+						<a href="#"> <img src='<c:url value="/static/image/portal/default/tyyd.png"/>' />
 						</a>
 					</div>
 					<div class="case-li-mengban">
 						<div class=" case-word">
-							<h3 class="am-gallery-title">管理系统</h3>
-							<p>2015-06-11</p>
+							<h3 class="am-gallery-title">体育运动</h3>
 							<a><span><i class="am-icon-eye"></i>查看更多</span></a>
 						</div>
 					</div>
 				</li>
 				<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
 					<div class="am-gallery-item case-img1">
-						<a href="#"> <img src='<c:url value="/static/image/portal/default/app5.png"/>' />
+						<a href="#"> <img src='<c:url value="/static/image/portal/default/whys.png"/>' />
 						</a>
 					</div>
 					<div class="case-li-mengban">
 						<div class=" case-word">
-							<h3 class="am-gallery-title">智众商城</h3>
-							<p>2015-06-11</p>
+							<h3 class="am-gallery-title">文化艺术</h3>
 							<a><span><i class="am-icon-eye"></i>查看更多</span></a>
 						</div>
 					</div>
 				</li>
 				<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
 					<div class="am-gallery-item case-img1">
-						<a href="#"> <img src='<c:url value="/static/image/portal/default/app6.png"/>' />
+						<a href="#"> <img src='<c:url value="/static/image/portal/default/szkz.png"/>' />
 						</a>
 					</div>
 					<div class="case-li-mengban">
 						<div class=" case-word">
-							<h3 class="am-gallery-title">汇众商城</h3>
-							<p>2015-06-11</p>
+							<h3 class="am-gallery-title">素质拓展</h3>
 							<a><span><i class="am-icon-eye"></i>查看更多</span></a>
 						</div>
 					</div>
 				</li>
 				<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
 					<div class="am-gallery-item case-img1">
-						<a href="#"> <img src='<c:url value="/static/image/portal/default/app7.png"/>' />
+						<a href="#"> <img src='<c:url value="/static/image/portal/default/sthd.png"/>' />
 						</a>
 					</div>
 					<div class="case-li-mengban">
 						<div class=" case-word">
-							<h3 class="am-gallery-title">无鞋网</h3>
-							<p>2015-06-11</p>
+							<h3 class="am-gallery-title">社团活动</h3>
 							<a><span><i class="am-icon-eye"></i>查看更多</span></a>
 						</div>
 					</div>
 				</li>
 				<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
 					<div class="am-gallery-item case-img1">
-						<a href="#"> <img src='<c:url value="/static/image/portal/default/app8.png"/>' />
+						<a href="#"> <img src='<c:url value="/static/image/portal/default/qtlx.png"/>' />
 						</a>
 					</div>
 					<div class="case-li-mengban">
 						<div class=" case-word">
-							<h3 class="am-gallery-title">响应式商城</h3>
-							<p>2015-06-11</p>
+							<h3 class="am-gallery-title">其他类型</h3>
 							<a><span><i class="am-icon-eye"></i>查看更多</span></a>
 						</div>
 					</div>
 				</li>
-
 			</ul>
-			<div class="lan-bott">
-				<div class="left">
-					<span>全方位解决方案,为您轻松解决不同问题</span>
-					<p>A full range of solutions for you to solve different
-						problems</p>
-				</div>
-				<div class="right">
-					<a href="customer-case.html"> <span class="see-more">查看更多<i
-							class="am-icon-angle-double-right"></i></span>
-					</a>
-				</div>
-				<div class="clear"></div>
-			</div>
 			<div class="part-title"></div>
 		</div>
 	</div>
@@ -239,7 +185,7 @@
 		</div>
 	</div>
 	
-<%@ include file="/WEB-INF/view/portal/default/customer.jsp"%>
+<%--<%@ include file="/WEB-INF/view/portal/default/customer.jsp"%>--%>
 <%@ include file="/WEB-INF/view/portal/default/footer.jsp"%>
 </body>
 </html>

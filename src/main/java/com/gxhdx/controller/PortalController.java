@@ -2,15 +2,19 @@ package com.gxhdx.controller;
 
 import com.gxhdx.entity.Article;
 import com.gxhdx.entity.Category;
+import com.gxhdx.entity.MessageBoard;
 import com.gxhdx.entity.SiteInfo;
 import com.gxhdx.service.*;
 import com.gxhdx.support.PageDto;
+import com.gxhdx.support.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -29,6 +33,8 @@ public class PortalController {
 	private SlideImgService slideImgService;
 	@Autowired
 	private StadiumService stadiumService;
+	@Autowired
+	private MessageBoardService messageBoardService;
 	private String template ="";
 
 	@ModelAttribute
@@ -74,6 +80,10 @@ public class PortalController {
 				&& list.getItems().size() > 0) {
 			model.addAttribute("article", list.getItems().get(0));
 		}
+//		if("messageboard".equals(category.getListType()) && list.getItems() != null
+//				&& list.getItems().size()>0 ){
+//			model.addAttribute("messageboard",list.getItems().get(0));
+//		}
 		model.addAttribute("category", category);
 		return "portal/"+template+"/"+ category.getListType();
 	}
@@ -83,6 +93,18 @@ public class PortalController {
 		model.addAttribute("entity", articleService.getArticle(id));
 		model.addAttribute("category", categoryService.getCategory(categoryId));
 		return "portal/"+template+"/article-show";
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/message/edit", method = RequestMethod.POST)
+	public Object edit(MessageBoard entity, Model model) {
+		try {
+			entity = messageBoardService.saveOrUpdate(entity);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Result(false, e);
+		}
+		return new Result(true, entity);
 	}
 
 }

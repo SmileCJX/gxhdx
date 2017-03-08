@@ -1,10 +1,9 @@
 package com.gxhdx.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-
+import com.gxhdx.entity.Attachment;
+import com.gxhdx.service.AttachmentService;
+import com.gxhdx.support.ReqDto;
+import com.gxhdx.support.Result;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,11 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.gxhdx.entity.Attachment;
-import com.gxhdx.service.AttachmentService;
-import com.gxhdx.support.QiniuFileUtil;
-import com.gxhdx.support.ReqDto;
-import com.gxhdx.support.Result;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/attachment")
@@ -109,9 +107,8 @@ public class AttachmentController {
 	public Object del(String ids, Model model) {
 		try {
 			List<String> imgPath = attachmentService.findAttachments(ids);
-			QiniuFileUtil.deleteQiniuBatch(imgPath);
-			;
 			attachmentService.delBatch(ids);
+//			QiniuFileUtil.deleteQiniuBatch(imgPath);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new Result(false, e);
