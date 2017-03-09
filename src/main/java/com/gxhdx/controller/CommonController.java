@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Date;
 import java.util.Random;
+import java.util.UUID;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
@@ -64,14 +65,23 @@ public class CommonController {
 		if (qqfile.isEmpty()) {
 			return new Result(false, "请选择文件");
 		} else {
-			String url = QiniuFileUtil.upload(qqfile);
 			Attachment attachment = new Attachment();
 			attachment.setCreateDate(new Date());
 			attachment.setFileName(qqfile.getOriginalFilename());
 			attachment.setFileType(qqfile.getContentType());
 			attachment.setFileSize((float)qqfile.getSize()/1024);
-			attachment.setUrl(url);
+
+			String fileName = "", extName = "", filePath = "";
+			if (null != qqfile && !qqfile.isEmpty()) {
+				extName = qqfile.getOriginalFilename().substring(
+						qqfile.getOriginalFilename().lastIndexOf("."));
+				fileName = UUID.randomUUID() + extName;
+				filePath = "http://ojtqgrh94.bkt.clouddn.com/"+fileName;
+			}
+			attachment.setUrl(filePath);
 			attachmentService.saveOrUpdate(attachment);
+			String url = QiniuFileUtil.upload(qqfile,fileName,filePath);
+
 			return new Result(true, url);
 		}
 	}

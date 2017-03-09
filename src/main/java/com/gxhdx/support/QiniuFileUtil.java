@@ -9,7 +9,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.UUID;
 
 public class QiniuFileUtil {
 //	private static String path = "http://7xkeg5.com1.z0.glb.clouddn.com/";
@@ -22,21 +21,22 @@ public class QiniuFileUtil {
 	private static String qiniuKey = "WfcdCjjZoFvTPEeJsBH9EerRnNdZoPK2q_7y4sk8";
 	private static String bucketName = "apicloudcjx";
 
-	public static String upload(MultipartFile file) {
-		String fileName = "", extName = "", filePath = "";
+	public static String upload(MultipartFile file,String fileName,String filePath) {
+//		String fileName = "";
+        String extName = "";
 		if (null != file && !file.isEmpty()) {
-			extName = file.getOriginalFilename().substring(
-					file.getOriginalFilename().lastIndexOf("."));
-			fileName = UUID.randomUUID() + extName;
+//			extName = file.getOriginalFilename().substring(
+//					file.getOriginalFilename().lastIndexOf("."));
+//			fileName = UUID.randomUUID() + extName;
 			UploadManager uploadManager = new UploadManager();
 			Auth auth = Auth.create(qiniuAccess, qiniuKey);
 			String token = auth.uploadToken(bucketName);
 			Response r;
 			try {
 				r = uploadManager.put(file.getBytes(), fileName, token);
-				if (r.isOK()) {
-					filePath = path + fileName;
-				}
+//				if (r.isOK()) {
+//					filePath = path + fileName;
+//				}
 			} catch (QiniuException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
