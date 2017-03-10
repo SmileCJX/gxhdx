@@ -1,4 +1,4 @@
-package  com.gxhdx.dao;  
+package  com.gxhdx.dao;
 
 import com.gxhdx.entity.MessageBoard;
 import com.gxhdx.support.PageDto;
