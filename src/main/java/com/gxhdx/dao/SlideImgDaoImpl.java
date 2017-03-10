@@ -3,6 +3,7 @@ package com.gxhdx.dao;
 import com.gxhdx.entity.SlideImg;
 import com.gxhdx.support.PageDto;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
@@ -37,10 +38,13 @@ public class SlideImgDaoImpl extends BaseDao implements SlideImgDao {
 		return super.find(SlideImg.class);
 	}
 
-	public PageDto<SlideImg> findList(Integer pageNo, Integer pageSize,Boolean avarlable) {
+	public PageDto<SlideImg> findList(String alt,Integer pageNo, Integer pageSize,Boolean available) {
 		DetachedCriteria dc = DetachedCriteria.forClass(SlideImg.class);
-		if (avarlable!=null) {
-			dc.add(Restrictions.eq("available", avarlable));
+		if (available!=null) {
+			dc.add(Restrictions.eq("available", available));
+		}
+		if (alt != null) {
+			dc.add(Restrictions.like("alt", alt, MatchMode.ANYWHERE));
 		}
 		dc.addOrder(Order.desc("showOrder"));
 		/* 一定先取count值 */

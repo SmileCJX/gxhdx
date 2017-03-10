@@ -27,9 +27,9 @@ public class SlideImgController {
 
 	@RequiresPermissions({ "slideImg/list" })
 	@RequestMapping(value = "/list", method = RequestMethod.POST)
-	public String list(ReqDto req, Model model) {
+	public String list(String alt,ReqDto req, Model model) {
 		try {
-			model.addAttribute("list", slideImgService.findList(
+			model.addAttribute("list", slideImgService.findList(alt,
 					req.getPageNo(), req.getPageSize(),null));
 		} catch (Exception e) {
 			e.printStackTrace();

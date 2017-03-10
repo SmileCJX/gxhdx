@@ -46,8 +46,8 @@ public class SlideImgServiceImpl implements SlideImgService {
 	}
 
 	@Transactional
-	public PageDto<SlideImg> findList(Integer pageNo, Integer pageSize,Boolean avarlable) {
-		return slideImgDao.findList(pageNo, pageSize, avarlable);
+	public PageDto<SlideImg> findList(String alt,Integer pageNo, Integer pageSize,Boolean available) {
+		return slideImgDao.findList(alt,pageNo, pageSize, available);
 	}
 
 }

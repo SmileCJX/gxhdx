@@ -23,6 +23,6 @@ public interface SlideImgService {
 
 	public List<SlideImg> findAll();
 
-	public PageDto<SlideImg> findList(Integer pageNo, Integer pageSize,Boolean avarlable);
+	public PageDto<SlideImg> findList(String alt,Integer pageNo, Integer pageSize,Boolean available);
 
 }

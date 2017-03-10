@@ -57,7 +57,7 @@ public class PortalController {
 	@RequestMapping("/")
 	public String index(Model model, HttpServletRequest request) {
 		model.addAttribute("category", new Category("首页"));
-		model.addAttribute("slideImgs", slideImgService.findList(1, 5,true));
+		model.addAttribute("slideImgs", slideImgService.findList(null,1, 5,true));
 		model.addAttribute("stadiums", stadiumService.findAll());
 //		return "portal/index";
 		return "portal/"+template+"/index";

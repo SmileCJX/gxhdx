@@ -36,7 +36,7 @@
 					</div>
 					<div class="am-u-sm-12 am-u-md-3">
 						<div class="am-input-group am-input-group-sm">
-							<input type="text" class="am-form-field" id="description" name="description" placeholder="用户名称模糊查询">
+							<input type="text" class="am-form-field" id="alt" name="alt" placeholder="图片说明模糊查询">
 							<span class="am-input-group-btn">
 								<button class="am-btn am-btn-default" type="button" onclick="query()">搜索</button>
 							</span>
@@ -59,7 +59,8 @@
 						type : 'post',
 						data : {
 							pageNo:pageNo,
-							pageSize:pageSize
+							pageSize:pageSize,
+							alt : $("#alt").val()
 						},
 						cache : false,
 						contentType : "application/x-www-form-urlencoded; charset=utf-8",

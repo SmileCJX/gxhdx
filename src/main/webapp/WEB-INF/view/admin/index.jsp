@@ -19,6 +19,32 @@
 			<li><a href="/gxhdx/" class="am-text-secondary"><span
 					class="am-icon-btn am-icon-user-md"></span><br />首页</a></li>
 		</ul>
+
+
+		<div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+			<!--列表标题-->
+			<div class="am-list-news-hd am-cf">
+				<!--带更多链接-->
+				<a href="/gxhdx/messageboard/index.jsp" class="">
+					<h2>留言板</h2>
+					<span class="am-list-news-more am-fr">更多 &raquo;</span>
+				</a>
+			</div>
+
+			<div class="am-list-news-bd">
+				<ul class="am-list">
+					<c:forEach items="${messageboards}" var="item">
+						<li class="am-g am-list-item-dated">
+							<a href="##" class="am-list-item-hd ">${item.content}</a>
+							<span class="am-list-date">${item.modifyDate}</span>
+						</li>
+						<br/>
+					</c:forEach>
+				</ul>
+			</div>
+
+		</div>
+
 	</div>
 
 	<footer class="admin-content-footer">
