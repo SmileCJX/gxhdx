@@ -33,7 +33,9 @@ private static final long serialVersionUID = 1L;
 		@Column(name = "picurl")  
 	    private  String picurl;  
 		@Column(name = "hits")  
-	    private  Integer hits;  
+	    private  Integer hits;
+        @Column(name = "available")
+        private  Boolean available = Boolean.FALSE;
 	
 	public Long getId() {
 		return id;
@@ -96,5 +98,13 @@ private static final long serialVersionUID = 1L;
       
     public Integer getHits(){  
         return   this.hits;  
-    }  
-} 
+    }
+
+    public Boolean getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(Boolean available) {
+        this.available = available;
+    }
+}

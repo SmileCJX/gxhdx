@@ -77,6 +77,18 @@
 								</textarea>
 							</div>
 						</div>
+
+						<div class="am-form-group">
+							<label for="available" class="am-u-sm-3 am-form-label">是否可用
+								/ Available</label>
+							<div class="am-u-sm-9 am-form-select">
+								<select  id="available"
+										 name="available">
+									<option value="1">可用</option>
+									<option value="0">禁用</option>
+								</select>
+							</div>
+						</div>
 					
 						<div class="am-form-group">
 							<div class="am-u-sm-9 am-u-sm-push-3">

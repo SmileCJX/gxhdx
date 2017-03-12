@@ -12,6 +12,7 @@
 						<th class="table-date am-hide-sm-only">新闻关键字</th>
 						<th class="table-date am-hide-sm-only">新闻相关连接</th>
 						<th class="table-date am-hide-sm-only">新闻图片</th>
+						<th class="table-date am-hide-sm-only">是否有效</th>
 					<th class="table-set">操作</th>
 				</tr>
 			</thead>
@@ -25,6 +26,7 @@
 							<td>${item.keyword}</td>
 							<td>${item.url}</td>
 							<td>${item.picurl}</td>
+							<td>${item.available}</td>
 						<td>
 							<div class="am-btn-toolbar">
 								<div class="am-btn-group am-btn-group-xs">

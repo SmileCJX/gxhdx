@@ -16,19 +16,19 @@
 	<div class=" am-container-1">
 		<div class="service-center">
 			<ul class="service-ul">
-				<c:forEach items="${list.items }" var="item">
+				<c:forEach items="${newsList.items }" var="item">
 					<c:if test="${item.available}">
 						<li class="am-u-lg-12 am-u-md-12 am-u-sm-12" >
 
 							<div class="am-u-lg-8 am-u-md-8 am-u-sm-12 service-content">
-								<a href="#" onclick="openArticle(${item.id},${item.categoryId })">
+								<a href="#" onclick="openArticle(${item.id},'7')">
 									<h4 class="w-blue" >${item.title }</h4>
 								</a>
-								<p>${item.remark }</p>
+								<p>${item.keyword }</p>
 							</div>
 							<div class="am-u-lg-4 am-u-md-4 am-u-sm-12 service-img">
-								<a href="#" onclick="openArticle(${item.id},${item.categoryId })">
-									<img src='<c:url value="${item.imgUrl }"/>'  />
+								<a href="#" onclick="openArticle(${item.id},'7')">
+									<img src='<c:url value="${item.picurl }"/>'  />
 								</a>
 							</div>
 						</li>
@@ -45,7 +45,7 @@
 	<%@ include file="/WEB-INF/view/portal/default/footer.jsp"%>
 	<script type="text/javascript">
 		function openArticle(id,categoryId) {
-			window.location.href = '<c:url value="/article?id='+id+'&categoryId='+categoryId+'"/>';
+			window.location.href = '<c:url value="/news?id='+id+'&categoryId='+categoryId+'"/>';
 		}
 	</script>
 </body>

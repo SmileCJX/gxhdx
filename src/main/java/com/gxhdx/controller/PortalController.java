@@ -1,9 +1,6 @@
 package com.gxhdx.controller;
 
-import com.gxhdx.entity.Article;
-import com.gxhdx.entity.Category;
-import com.gxhdx.entity.MessageBoard;
-import com.gxhdx.entity.SiteInfo;
+import com.gxhdx.entity.*;
 import com.gxhdx.service.*;
 import com.gxhdx.support.PageDto;
 import com.gxhdx.support.Result;
@@ -35,6 +32,8 @@ public class PortalController {
 	private StadiumService stadiumService;
 	@Autowired
 	private MessageBoardService messageBoardService;
+	@Autowired
+	private  NewsService newsService;
 	private String template ="";
 
 	@ModelAttribute
@@ -58,7 +57,8 @@ public class PortalController {
 	public String index(Model model, HttpServletRequest request) {
 		model.addAttribute("category", new Category("首页"));
 		model.addAttribute("slideImgs", slideImgService.findList(null,1, 5,true));
-		model.addAttribute("stadiums", stadiumService.findAll());
+//		model.addAttribute("stadiums", stadiumService.findAll());
+		model.addAttribute("news",newsService.findList(null,null,null,null,null,null,null,null,null,1,4,true));
 //		return "portal/index";
 		return "portal/"+template+"/index";
 	}
@@ -79,6 +79,11 @@ public class PortalController {
 		if ("single".equals(category.getListType()) && list.getItems() != null
 				&& list.getItems().size() > 0) {
 			model.addAttribute("article", list.getItems().get(0));
+		}
+
+		if(categoryId == 7){
+			PageDto<News> newsPageDto = newsService.findList(null,null,null,null,null,null,null,null,null,pageNo,pageSize,true);
+			model.addAttribute("newsList",newsPageDto);
 		}
 //		if("messageboard".equals(category.getListType()) && list.getItems() != null
 //				&& list.getItems().size()>0 ){
@@ -105,6 +110,13 @@ public class PortalController {
 			return new Result(false, e);
 		}
 		return new Result(true, entity);
+	}
+
+	@RequestMapping("/news")
+	public String newslistCase(Model model, Long id,Long categoryId) {
+		model.addAttribute("entity", newsService.getNews(id));
+		model.addAttribute("category", categoryService.getCategory(categoryId));
+		return "portal/"+template+"/news-show";
 	}
 
 }

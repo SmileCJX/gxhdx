@@ -1,10 +1,10 @@
 package com.gxhdx.dao;
 
-import java.util.List;
-import java.util.Date;
-
 import com.gxhdx.entity.News;
 import com.gxhdx.support.PageDto;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * @ClassName: NewsDao
@@ -23,6 +23,6 @@ public interface NewsDao {
 
 	public List<News> findAll();
 
-	public PageDto<News> findList( String title,   String content,   String publisher,   String keyword,   String url,   String picurl,   Integer hits,  Date startDate,Date endDate,Integer pageNo, Integer pageSize);
+	public PageDto<News> findList( String title,   String content,   String publisher,   String keyword,   String url,   String picurl,   Integer hits,  Date startDate,Date endDate,Integer pageNo, Integer pageSize,Boolean available);
 
 }

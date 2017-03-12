@@ -1,8 +1,7 @@
 package  com.gxhdx.dao;  
 
-import java.util.List;
-import java.util.Date;
-
+import com.gxhdx.entity.News;
+import com.gxhdx.support.PageDto;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
@@ -10,8 +9,8 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import com.gxhdx.entity.News;
-import com.gxhdx.support.PageDto;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @ClassName: NewsDaoImpl
@@ -42,9 +41,12 @@ public class NewsDaoImpl extends BaseDao implements NewsDao {
 		return super.find(News.class);
 	}
 
-	public PageDto<News> findList( String title,   String content,   String publisher,   String keyword,   String url,   String picurl,   Integer hits,  Date startDate,Date endDate,Integer pageNo, Integer pageSize){
+	public PageDto<News> findList( String title,   String content,   String publisher,   String keyword,   String url,   String picurl,   Integer hits,  Date startDate,Date endDate,Integer pageNo, Integer pageSize,Boolean available){
 		DetachedCriteria dc = DetachedCriteria.forClass(News.class);
-		
+
+		if (available!=null) {
+			dc.add(Restrictions.eq("available", available));
+		}
 		
 	  	if (!StringUtils.isEmpty(title)) {
 			dc.add(Restrictions.like("title", title, MatchMode.ANYWHERE));

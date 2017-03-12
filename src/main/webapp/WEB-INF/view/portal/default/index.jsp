@@ -147,37 +147,41 @@
 				</div>
 				<div class="news-content ">
 					<ul class="news-content-ul">
-						<li class="am-u-sm-12 am-u-md-6 am-u-lg-6"><a href="#">
-								<div class=" am-u-sm-12 am-u-md-12 am-u-lg-5">
-									<div class="news-img">
-										<img src='<c:url value="/static/image/portal/default/news.png"/>'></img>
+						<c:forEach items="${news.items}" var="item">
+							<c:if test="${item.available}">
+								<li class="am-u-sm-12 am-u-md-6 am-u-lg-6"><a href="#">
+									<div class=" am-u-sm-12 am-u-md-12 am-u-lg-5">
+										<div class="news-img">
+											<img src='<c:url value="${item.picurl}"/>'/>
+										</div>
 									</div>
-								</div>
-								<div class=" am-u-sm-12 am-u-md-12 am-u-lg-7">
-									<span class="news-right-title">关于召开年会的通知</span>
-									<p class="news-right-time">2015-06-11</p>
-									<p class="news-right-words">互联网，又称网际网路或音译因特网、英特网，是网络与网络之间所串连成的庞大网络网络与网络之...</p>
-									<a><span class="see-more2">查看更多<i
-											class="am-icon-angle-double-right"></i></span></a>
-								</div>
-								<div class="clear"></div>
-						</a></li>
-						<li class="am-u-sm-12 am-u-md-6 am-u-lg-6"><a href="#">
-								<div class=" am-u-sm-12 am-u-md-12 am-u-lg-5">
-									<div class="news-img">
-										<img src='<c:url value="/static/image/portal/default/news1.png"/>'></img>
+									<div class=" am-u-sm-12 am-u-md-12 am-u-lg-7">
+										<span class="news-right-title">${item.title}</span>
+										<p class="news-right-time">${item.modifyDate}</p>
+										<p class="news-right-words">${item.keyword}</p>
+										<a href="#" onclick="openArticle( ${item.id},'7' )"><span class="see-more2">查看更多<i
+												class="am-icon-angle-double-right"></i></span></a>
 									</div>
-								</div>
-								<div class=" am-u-sm-12 am-u-md-12 am-u-lg-7">
-									<span class="news-right-title">关于召开年会的通知</span>
-									<p class="news-right-time">2015-06-11</p>
-									<p class="news-right-words">互联网，又称网际网路或音译因特网、英特网，是网络与网络之间所串连成的庞大网络网络与网络之...</p>
-									<a><span class="see-more2">查看更多<i
-											class="am-icon-angle-double-right"></i></span></a>
-								</div>
-								<div class="clear"></div>
-						</a></li>
-						<div class="clear"></div>
+									<div class="clear"></div>
+								</a></li>
+							</c:if>
+						</c:forEach>
+						<%--<li class="am-u-sm-12 am-u-md-6 am-u-lg-6"><a href="#">--%>
+								<%--<div class=" am-u-sm-12 am-u-md-12 am-u-lg-5">--%>
+									<%--<div class="news-img">--%>
+										<%--<img src='<c:url value="/static/image/portal/default/news1.png"/>'/>--%>
+									<%--</div>--%>
+								<%--</div>--%>
+								<%--<div class=" am-u-sm-12 am-u-md-12 am-u-lg-7">--%>
+									<%--<span class="news-right-title">关于召开年会的通知</span>--%>
+									<%--<p class="news-right-time">2015-06-11</p>--%>
+									<%--<p class="news-right-words">互联网，又称网际网路或音译因特网、英特网，是网络与网络之间所串连成的庞大网络网络与网络之...</p>--%>
+									<%--<a><span class="see-more2">查看更多<i--%>
+											<%--class="am-icon-angle-double-right"></i></span></a>--%>
+								<%--</div>--%>
+								<%--<div class="clear"></div>--%>
+						<%--</a></li>--%>
+						<%--<div class="clear"></div>--%>
 					</ul>
 					<div class="clear"></div>
 				</div>
@@ -187,5 +191,10 @@
 	
 <%--<%@ include file="/WEB-INF/view/portal/default/customer.jsp"%>--%>
 <%@ include file="/WEB-INF/view/portal/default/footer.jsp"%>
+<script type="text/javascript">
+	function openArticle(id,categoryId) {
+		window.location.href = '<c:url value="/news?id='+id+'&categoryId='+categoryId+'"/>';
+	}
+</script>
 </body>
 </html>

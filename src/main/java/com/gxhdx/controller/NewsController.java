@@ -1,9 +1,9 @@
 package com.gxhdx.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
+import com.gxhdx.entity.News;
+import com.gxhdx.service.NewsService;
+import com.gxhdx.support.ReqDto;
+import com.gxhdx.support.Result;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,10 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.gxhdx.entity.News;
-import com.gxhdx.service.NewsService;
-import com.gxhdx.support.ReqDto;
-import com.gxhdx.support.Result;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/news")
@@ -31,7 +30,7 @@ public class NewsController {
 
 	@RequiresPermissions({ "news/list" })
 	@RequestMapping(value = "/list", method = RequestMethod.POST)
-	public String list(String title, String content, String publisher, String keyword, String url, String picurl, Integer hits, String startDate, String endDate,ReqDto req, Model model) {
+	public String list(String title, String content, String publisher, String keyword, String url, String picurl, Integer hits, String startDate, String endDate,Boolean available,ReqDto req, Model model) {
 		try {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Date sDate = null;
@@ -48,7 +47,7 @@ public class NewsController {
 			}
 			model.addAttribute(
 					"list",
-					newsService.findList(title, content, publisher, keyword, url, picurl, hits, sDate,eDate,req.getPageNo(), req.getPageSize()));
+					newsService.findList(title, content, publisher, keyword, url, picurl, hits, sDate,eDate,req.getPageNo(), req.getPageSize(),available));
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "common/error";

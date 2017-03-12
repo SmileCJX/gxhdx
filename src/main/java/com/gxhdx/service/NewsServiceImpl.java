@@ -1,15 +1,14 @@
 package com.gxhdx.service;
 
-import java.util.List;
-import java.util.Date;
-
+import com.gxhdx.dao.NewsDao;
+import com.gxhdx.entity.News;
+import com.gxhdx.support.PageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.gxhdx.dao.NewsDao;
-import com.gxhdx.entity.News;
-import com.gxhdx.support.PageDto;
+import java.util.Date;
+import java.util.List;
 
 
 /** 
@@ -44,8 +43,8 @@ public class NewsServiceImpl implements NewsService {
 	}
 
 	@Transactional
-	public PageDto<News> findList( String title,   String content,   String publisher,   String keyword,   String url,   String picurl,   Integer hits,  Date startDate,Date endDate,Integer pageNo, Integer pageSize) {
-		return newsDao.findList(title, content, publisher, keyword, url, picurl, hits, startDate,endDate,pageNo,pageSize);
+	public PageDto<News> findList( String title,   String content,   String publisher,   String keyword,   String url,   String picurl,   Integer hits,  Date startDate,Date endDate,Integer pageNo, Integer pageSize,Boolean available) {
+		return newsDao.findList(title, content, publisher, keyword, url, picurl, hits, startDate,endDate,pageNo,pageSize,available);
 	}
 
 	@Transactional
