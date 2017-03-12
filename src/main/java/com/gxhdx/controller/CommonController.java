@@ -80,9 +80,14 @@ public class CommonController {
 			}
 			attachment.setUrl(filePath);
 			attachmentService.saveOrUpdate(attachment);
-			String url = QiniuFileUtil.upload(qqfile,fileName,filePath);
+			try{
+				String url = QiniuFileUtil.upload(qqfile,fileName,filePath);
+			}catch (Exception e){
+				e.printStackTrace();
+			}finally {
+				return new Result(true, filePath);
+			}
 
-			return new Result(true, url);
 		}
 	}
 
