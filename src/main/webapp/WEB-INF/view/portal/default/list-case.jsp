@@ -18,17 +18,20 @@
 			class="am-gallery am-avg-sm-1 am-avg-md-3 am-avg-lg-4 am-gallery-bordered customer-case-ul"
 			data-am-gallery="{  }">
 			<c:forEach items="${list.items }" var="item">
-				<li>
-					<div class="am-gallery-item">
-						<a href="#" onclick="openArticle(${item.id},${item.categoryId })">
-							<div class="customer-case-img">
-								<img src='${item.imgUrl }' />
-							</div>
-							<h3 class="am-gallery-title">${item.title }</h3>
-							<div class="am-gallery-desc gallery-words">${item.remark }</div>
-						</a>
-					</div>
-				</li>
+				<c:if test="${item.available == true}">
+					<li>
+						<div class="am-gallery-item">
+							<a href="#" onclick="openArticle(${item.id},${item.categoryId })">
+								<div class="customer-case-img">
+									<img src='${item.imgUrl }' />
+								</div>
+								<h3 class="am-gallery-title">${item.title }</h3>
+								<div class="am-gallery-desc gallery-words">${item.remark }</div>
+							</a>
+						</div>
+					</li>
+				</c:if>
+
 			</c:forEach>
 		</ul>
 	</div>
