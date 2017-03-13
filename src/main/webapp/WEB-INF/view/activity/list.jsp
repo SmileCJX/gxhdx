@@ -16,7 +16,7 @@
 						<th class="table-date am-hide-sm-only">浏览数</th>
 						<th class="table-date am-hide-sm-only">活动备注</th>
 						<th class="table-date am-hide-sm-only">是否有效</th>
-						<th class="table-date am-hide-sm-only">活动图片</th>
+						<%--<th class="table-date am-hide-sm-only">活动图片</th>--%>
 						<th class="table-date am-hide-sm-only">活动类型</th>
 					<th class="table-set">操作</th>
 				</tr>
@@ -26,7 +26,7 @@
 					<tr>
 						<td><input type="checkbox" name="checkitem" onclick="selectItem(this);" id="check${item.id }" value="${item.id }"/></td>
 							<td>${item.title}</td>
-							<td>${item.content}</td>
+							<td class="ellipsis">${item.content}</td>
 							<td>${item.keyword}</td>
 							<td>${item.url}</td>
 							<td>${item.department.name}</td>
@@ -35,7 +35,7 @@
 							<td>${item.hits}</td>
 							<td>${item.remark}</td>
 							<td>${item.available}</td>
-							<td>${item.imgUrl}</td>
+							<%--<td>${item.imgUrl}</td>--%>
 							<td>${item.activityType.typeName}</td>
 						<td>
 							<div class="am-btn-toolbar">
@@ -60,3 +60,11 @@
 		<p>注：.....</p>
 	</form>
 </div>
+
+<script type="text/javascript" src="<c:url value="/static/plugin/readmore/readmore.js"/>"></script>
+<script>
+	$(function(){
+
+		$("td .ellipsis").readmore();
+	});
+</script>
