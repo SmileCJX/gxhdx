@@ -34,6 +34,9 @@ public class PortalController {
 	private MessageBoardService messageBoardService;
 	@Autowired
 	private  NewsService newsService;
+	@Autowired
+	private ActivityTypeService activityTypeService;
+
 	private String template ="";
 
 	@ModelAttribute
@@ -84,6 +87,10 @@ public class PortalController {
 		if(categoryId == 7){
 			PageDto<News> newsPageDto = newsService.findList(null,null,null,null,null,null,null,null,null,pageNo,pageSize,true);
 			model.addAttribute("newsList",newsPageDto);
+		}
+		if(categoryId == 8){
+			PageDto<ActivityType> activityTypePageDto = activityTypeService.findList(null,null,null,null,pageNo,pageSize);
+			model.addAttribute("activitytypeList",activityTypePageDto);
 		}
 //		if("messageboard".equals(category.getListType()) && list.getItems() != null
 //				&& list.getItems().size()>0 ){

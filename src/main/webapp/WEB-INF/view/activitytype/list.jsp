@@ -7,7 +7,8 @@
 				<tr>
 					<th class="table-check"><input type="checkbox" id="checkAll" onclick="selectAll();" /></th>
 											<th class="table-date am-hide-sm-only">活动类型</th>
-						<th class="table-date am-hide-sm-only">简介</th>
+					<th class="table-date am-hide-sm-only">简介</th>
+					<th class="table-date am-hide-sm-only">活动图片</th>
 					<th class="table-set">操作</th>
 				</tr>
 			</thead>
@@ -17,6 +18,7 @@
 						<td><input type="checkbox" name="checkitem" onclick="selectItem(this);" id="check${item.id }" value="${item.id }"/></td>
 							<td>${item.typeName}</td>
 							<td>${item.introduction}</td>
+							<td>${item.imgUrl}</td>
 						<td>
 							<div class="am-btn-toolbar">
 								<div class="am-btn-group am-btn-group-xs">

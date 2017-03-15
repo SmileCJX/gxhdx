@@ -39,6 +39,25 @@
 									placeholder="简介/ introduction" required="required">
 							</div>
 						</div>
+
+						<div class="am-form-group">
+							<label for="user-phone" class="am-u-sm-3 am-form-label">缩略图
+								/ ImgUrl</label>
+							<div class="am-u-sm-9">
+								<div class="am-form-group am-form-file" >
+									<button type="button" class="am-btn am-btn-danger am-btn-sm" onclick="openChooseLayer();">
+										<i class="am-icon-cloud-upload"></i> 选择要上传的文件
+									</button>
+								</div>
+								<img alt="" src="${entity.imgUrl }" id="showImg" width="300px" height="200px">
+								<button type="button" class="am-btn am-btn-danger am-btn-sm" id="deleteImg" onclick="delImg('${entity.imgUrl}')">
+									删除
+								</button>
+								<input type="hidden" id="imgUrl" name="imgUrl" value="${entity.imgUrl }">
+							</div>
+						</div>
+
+
 					
 						<div class="am-form-group">
 							<div class="am-u-sm-9 am-u-sm-push-3">
@@ -83,6 +102,56 @@
 					layer.msg('系统异常');
 				}
 			});
+		}
+
+		var data = {
+			url : '',
+			alt : ''
+		};
+		function openChooseLayer() {
+			layer.open({
+				type : 2,
+				title : '选择图片',
+				shadeClose : true,
+				shade : 0.8,
+				area : [ '92%', '90%' ],
+				content : '<c:url value="/common/chooseLayer"/>',
+				end : function() {
+					console.log(data.url)
+					$("#imgUrl").val(data.url);
+					$("#showImg").attr("src",data.url);
+					$("#deleteImg").attr("onclick","delImg('"+data.url+"')");
+				}
+			});
+		}
+		function delImg(path){
+			$("#imgUrl").val("");
+			$("#showImg").attr("src","");
+			/* if(path==null){
+			 return;
+			 }
+			 $.ajax({
+			 url : "../common/fileDelete",
+			 data : {
+			 path:path
+			 },
+			 method : 'post',
+			 contentType : 'application/x-www-form-urlencoded',
+			 encoding : 'UTF-8',
+			 cache : false,
+			 success : function(result) {
+			 if (result.success) {
+			 $("#siteLogo").val("");
+			 $("#showImg").attr("src","");
+			 layer.msg('删除成功');
+			 } else {
+			 layer.msg('删除失败');
+			 }
+			 },
+			 error : function() {
+			 layer.msg('系统异常');
+			 }
+			 }); */
 		}
 	</script>
 </body>

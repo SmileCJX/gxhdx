@@ -22,7 +22,9 @@ private static final long serialVersionUID = 1L;
 		@Column(name = "type_name")
 	    private  String typeName;  
 		@Column(name = "introduction")  
-	    private  String introduction;  
+	    private  String introduction;
+	@Column(name = "img_url")
+	private String imgUrl;
 	
 	public Long getId() {
 		return id;
@@ -50,5 +52,13 @@ private static final long serialVersionUID = 1L;
       
     public String getIntroduction(){  
         return   this.introduction;  
-    }  
-} 
+    }
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+}
