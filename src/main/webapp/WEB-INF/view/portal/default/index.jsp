@@ -34,102 +34,105 @@
 			<ul data-am-widget="gallery"
 				class=" am-avg-sm-1
   am-avg-md-4 am-avg-lg-4 am-gallery-bordered customer-case-content">
-				<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
-					<div class="am-gallery-item case-img1">
-						<a href="#"> <img src='<c:url value="/static/image/portal/default/study1.png"/>' />
-						</a>
-					</div>
-					<div class="case-li-mengban">
-						<div class=" case-word">
-							<h3 class="am-gallery-title">理论学习</h3>
-							<a><span><i class="am-icon-eye"></i>查看更多</span></a>
+				<c:forEach items="${activitytypelists}" var="item">
+					<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
+						<div class="am-gallery-item case-img1">
+							<a href="#"> <img src='${item.imgUrl }' />
+							</a>
 						</div>
-					</div>
-				</li>
-				<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
-					<div class="am-gallery-item case-img1">
-						<a href="#"> <img src='<c:url value="/static/image/portal/default/cxkj.png"/>' />
-						</a>
-					</div>
-					<div class="case-li-mengban">
-						<div class=" case-word">
-							<h3 class="am-gallery-title">创业科技</h3>
-							<a><span><i class="am-icon-eye"></i>查看更多</span></a>
+						<div class="case-li-mengban">
+							<div class=" case-word">
+								<h3 class="am-gallery-title">${item.typeName}</h3>
+								<a><span><i class="am-icon-eye"></i>查看更多</span></a>
+							</div>
 						</div>
-					</div>
-				</li>
-				<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
-					<div class="am-gallery-item case-img1">
-						<a href="#"> <img src='<c:url value="/static/image/portal/default/gysj.png"/>' />
-						</a>
-					</div>
-					<div class="case-li-mengban">
-						<div class=" case-word">
-							<h3 class="am-gallery-title">公益实践</h3>
-							<a><span><i class="am-icon-eye"></i>查看更多</span></a>
-						</div>
-					</div>
-				</li>
-				<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
-					<div class="am-gallery-item case-img1">
-						<a href="#"> <img src='<c:url value="/static/image/portal/default/tyyd.png"/>' />
-						</a>
-					</div>
-					<div class="case-li-mengban">
-						<div class=" case-word">
-							<h3 class="am-gallery-title">体育运动</h3>
-							<a><span><i class="am-icon-eye"></i>查看更多</span></a>
-						</div>
-					</div>
-				</li>
-				<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
-					<div class="am-gallery-item case-img1">
-						<a href="#"> <img src='<c:url value="/static/image/portal/default/whys.png"/>' />
-						</a>
-					</div>
-					<div class="case-li-mengban">
-						<div class=" case-word">
-							<h3 class="am-gallery-title">文化艺术</h3>
-							<a><span><i class="am-icon-eye"></i>查看更多</span></a>
-						</div>
-					</div>
-				</li>
-				<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
-					<div class="am-gallery-item case-img1">
-						<a href="#"> <img src='<c:url value="/static/image/portal/default/szkz.png"/>' />
-						</a>
-					</div>
-					<div class="case-li-mengban">
-						<div class=" case-word">
-							<h3 class="am-gallery-title">素质拓展</h3>
-							<a><span><i class="am-icon-eye"></i>查看更多</span></a>
-						</div>
-					</div>
-				</li>
-				<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
-					<div class="am-gallery-item case-img1">
-						<a href="#"> <img src='<c:url value="/static/image/portal/default/sthd.png"/>' />
-						</a>
-					</div>
-					<div class="case-li-mengban">
-						<div class=" case-word">
-							<h3 class="am-gallery-title">社团活动</h3>
-							<a><span><i class="am-icon-eye"></i>查看更多</span></a>
-						</div>
-					</div>
-				</li>
-				<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
-					<div class="am-gallery-item case-img1">
-						<a href="#"> <img src='<c:url value="/static/image/portal/default/qtlx.png"/>' />
-						</a>
-					</div>
-					<div class="case-li-mengban">
-						<div class=" case-word">
-							<h3 class="am-gallery-title">其他类型</h3>
-							<a><span><i class="am-icon-eye"></i>查看更多</span></a>
-						</div>
-					</div>
-				</li>
+					</li>
+				</c:forEach>
+
+				<%--<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">--%>
+					<%--<div class="am-gallery-item case-img1">--%>
+						<%--<a href="#"> <img src='<c:url value="/static/image/portal/default/cxkj.png"/>' />--%>
+						<%--</a>--%>
+					<%--</div>--%>
+					<%--<div class="case-li-mengban">--%>
+						<%--<div class=" case-word">--%>
+							<%--<h3 class="am-gallery-title">创业科技</h3>--%>
+							<%--<a><span><i class="am-icon-eye"></i>查看更多</span></a>--%>
+						<%--</div>--%>
+					<%--</div>--%>
+				<%--</li>--%>
+				<%--<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">--%>
+					<%--<div class="am-gallery-item case-img1">--%>
+						<%--<a href="#"> <img src='<c:url value="/static/image/portal/default/gysj.png"/>' />--%>
+						<%--</a>--%>
+					<%--</div>--%>
+					<%--<div class="case-li-mengban">--%>
+						<%--<div class=" case-word">--%>
+							<%--<h3 class="am-gallery-title">公益实践</h3>--%>
+							<%--<a><span><i class="am-icon-eye"></i>查看更多</span></a>--%>
+						<%--</div>--%>
+					<%--</div>--%>
+				<%--</li>--%>
+				<%--<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">--%>
+					<%--<div class="am-gallery-item case-img1">--%>
+						<%--<a href="#"> <img src='<c:url value="/static/image/portal/default/tyyd.png"/>' />--%>
+						<%--</a>--%>
+					<%--</div>--%>
+					<%--<div class="case-li-mengban">--%>
+						<%--<div class=" case-word">--%>
+							<%--<h3 class="am-gallery-title">体育运动</h3>--%>
+							<%--<a><span><i class="am-icon-eye"></i>查看更多</span></a>--%>
+						<%--</div>--%>
+					<%--</div>--%>
+				<%--</li>--%>
+				<%--<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">--%>
+					<%--<div class="am-gallery-item case-img1">--%>
+						<%--<a href="#"> <img src='<c:url value="/static/image/portal/default/whys.png"/>' />--%>
+						<%--</a>--%>
+					<%--</div>--%>
+					<%--<div class="case-li-mengban">--%>
+						<%--<div class=" case-word">--%>
+							<%--<h3 class="am-gallery-title">文化艺术</h3>--%>
+							<%--<a><span><i class="am-icon-eye"></i>查看更多</span></a>--%>
+						<%--</div>--%>
+					<%--</div>--%>
+				<%--</li>--%>
+				<%--<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">--%>
+					<%--<div class="am-gallery-item case-img1">--%>
+						<%--<a href="#"> <img src='<c:url value="/static/image/portal/default/szkz.png"/>' />--%>
+						<%--</a>--%>
+					<%--</div>--%>
+					<%--<div class="case-li-mengban">--%>
+						<%--<div class=" case-word">--%>
+							<%--<h3 class="am-gallery-title">素质拓展</h3>--%>
+							<%--<a><span><i class="am-icon-eye"></i>查看更多</span></a>--%>
+						<%--</div>--%>
+					<%--</div>--%>
+				<%--</li>--%>
+				<%--<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">--%>
+					<%--<div class="am-gallery-item case-img1">--%>
+						<%--<a href="#"> <img src='<c:url value="/static/image/portal/default/sthd.png"/>' />--%>
+						<%--</a>--%>
+					<%--</div>--%>
+					<%--<div class="case-li-mengban">--%>
+						<%--<div class=" case-word">--%>
+							<%--<h3 class="am-gallery-title">社团活动</h3>--%>
+							<%--<a><span><i class="am-icon-eye"></i>查看更多</span></a>--%>
+						<%--</div>--%>
+					<%--</div>--%>
+				<%--</li>--%>
+				<%--<li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">--%>
+					<%--<div class="am-gallery-item case-img1">--%>
+						<%--<a href="#"> <img src='<c:url value="/static/image/portal/default/qtlx.png"/>' />--%>
+						<%--</a>--%>
+					<%--</div>--%>
+					<%--<div class="case-li-mengban">--%>
+						<%--<div class=" case-word">--%>
+							<%--<h3 class="am-gallery-title">其他类型</h3>--%>
+							<%--<a><span><i class="am-icon-eye"></i>查看更多</span></a>--%>
+						<%--</div>--%>
+					<%--</div>--%>
+				<%--</li>--%>
 			</ul>
 			<div class="part-title"></div>
 		</div>

@@ -47,6 +47,7 @@ public class PortalController {
 					categoryService.findList(null, null, 1, 15));
 			model.addAttribute("siteInfo", siteInfo);
 			model.addAttribute("links", friendshipLinkService.findAll());
+			model.addAttribute("activitytypelists",activityTypeService.findAll());
 			template=siteInfo.getSiteTemplate();
 			if (StringUtils.isEmpty(template)) {
 				template="default";
