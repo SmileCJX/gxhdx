@@ -115,14 +115,14 @@
 						</div>
 					
 	
-						<div class="am-form-group">
-							<label for="user-name" class="am-u-sm-3 am-form-label"> 浏览数
-								/  hits</label>
-							<div class="am-u-sm-9">
-								<input type="text"  id="hits" name="hits" 
-									placeholder="浏览数/ hits"  required="" >
-							</div>
-						</div>
+						<%--<div class="am-form-group">--%>
+							<%--<label for="user-name" class="am-u-sm-3 am-form-label"> 浏览数--%>
+								<%--/  hits</label>--%>
+							<%--<div class="am-u-sm-9">--%>
+								<%--<input type="text"  id="hits" name="hits" --%>
+									<%--placeholder="浏览数/ hits"  required="" >--%>
+							<%--</div>--%>
+						<%--</div>--%>
 					
 	
 						<div class="am-form-group">

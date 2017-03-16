@@ -7,7 +7,7 @@
 				<tr>
 					<th class="table-check"><input type="checkbox" id="checkAll" onclick="selectAll();" /></th>
 											<th class="table-date am-hide-sm-only">活动标题</th>
-						<th class="table-date am-hide-sm-only">活动内容</th>
+						<%--<th class="table-date am-hide-sm-only">活动内容</th>--%>
 						<th class="table-date am-hide-sm-only">活动关键字</th>
 						<th class="table-date am-hide-sm-only">活动相关连接</th>
 						<th class="table-date am-hide-sm-only">活动主办部门</th>
@@ -21,14 +21,14 @@
 					<th class="table-set">操作</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="tbody“">
 				<c:forEach items="${list.items }" var="item">
 					<tr>
 						<td><input type="checkbox" name="checkitem" onclick="selectItem(this);" id="check${item.id }" value="${item.id }"/></td>
 							<td>${item.title}</td>
-							<td class="ellipsis">${item.content}</td>
+							<%--<td class="content">${item.content}</td>--%>
 							<td>${item.keyword}</td>
-							<td>${item.url}</td>
+							<td><a href="${item.url}">${item.url}</a></td>
 							<td>${item.department.name}</td>
 							<td>${item.sponsor}</td>
 							<td>${item.sponsorPhone}</td>
@@ -64,7 +64,5 @@
 <script type="text/javascript" src="<c:url value="/static/plugin/readmore/readmore.js"/>"></script>
 <script>
 	$(function(){
-
-		$("td .ellipsis").readmore();
 	});
 </script>
