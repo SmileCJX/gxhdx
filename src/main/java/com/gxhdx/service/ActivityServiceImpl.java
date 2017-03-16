@@ -48,6 +48,11 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	@Transactional
+	public PageDto<Activity> findList(Long activityId, Boolean available, Date startDate, Date endDate, Integer pageNo, Integer pageSize) {
+		return activityDao.findList(activityId,available,startDate,endDate,pageNo,pageSize);
+	}
+
+	@Transactional
 	public Activity getActivity(Long id) {
 		return activityDao.getActivity(id);
 	}

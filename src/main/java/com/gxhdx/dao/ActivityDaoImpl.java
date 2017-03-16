@@ -103,6 +103,26 @@ public class ActivityDaoImpl extends BaseDao implements ActivityDao {
 		return new PageDto<Activity>(total, pageNo, pageSize, list);
 	}
 
+	public PageDto<Activity> findList(Long activityId, Boolean available, Date startDate, Date endDate, Integer pageNo, Integer pageSize) {
+		DetachedCriteria dc = DetachedCriteria.forClass(Activity.class);
+//		dc.createAlias("activityType", "t");
+//		if( activityId != null ){
+//			dc.add(Restrictions.like("t.id", activityId.toString(),MatchMode.ANYWHERE));
+//		}
+		if (!StringUtils.isEmpty(available)) {
+			dc.add(Restrictions.eq("available", available));
+		}
+		if (startDate != null) {
+			dc.add(Restrictions.ge("modifyDate", startDate));
+		}
+		if (endDate != null) {
+			dc.add(Restrictions.le("modifyDate", endDate));
+		}
+		Long total = super.countByCriteria(dc);
+		List<Activity> list = super.findByRootEntityCriteria(dc, (pageNo - 1) * pageSize, pageSize);
+		return new PageDto<Activity>(total, pageNo, pageSize, list);
+	}
+
 	public Activity getActivity(Long id) {
 		return super.get(Activity.class, id);
 	}

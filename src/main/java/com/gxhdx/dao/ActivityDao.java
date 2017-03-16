@@ -25,4 +25,6 @@ public interface ActivityDao {
 
 	public PageDto<Activity> findList( String title,   String content,   String keyword,   String url,   String depatement,   String sponsor,   String sponsorPhone,   Integer hits,   String remark,   Boolean available,   String imgUrl,  Date startDate,Date endDate,Integer pageNo, Integer pageSize);
 
+	public PageDto<Activity> findList(Long activityId, Boolean available, Date startDate,Date endDate,Integer pageNo, Integer pageSize);
+
 }

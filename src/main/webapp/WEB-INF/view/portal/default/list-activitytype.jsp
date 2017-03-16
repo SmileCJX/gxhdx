@@ -17,15 +17,15 @@
 		<ul data-am-widget="gallery"
 			class="am-gallery am-avg-sm-1 am-avg-md-3 am-avg-lg-4 am-gallery-bordered customer-case-ul"
 			data-am-gallery="{  }">
-			<c:forEach items="${activitys.items }" var="item">
+			<c:forEach items="${activitytypeList.items }" var="item">
 					<li>
 						<div class="am-gallery-item">
 							<a href="#" onclick="openActivity(${item.id})">
 								<div class="customer-case-img">
 									<img src='${item.imgUrl }' />
 								</div>
-								<h3 class="am-gallery-title">${item.keyword }</h3>
-								<div class="am-gallery-desc gallery-words">${item.remark }</div>
+								<h3 class="am-gallery-title">${item.typeName }</h3>
+								<div class="am-gallery-desc gallery-words">${item.introduction }</div>
 							</a>
 						</div>
 					</li>
@@ -68,7 +68,7 @@
 		<%--}--%>
 
 		function openActivity(id){
-			window.location.href = '<c:url value="/activity?id='+id+'"/>';
+			window.location.href = '<c:url value="/portal_activity/list?id='+id+'"/>';
 		}
 	</script>
 </body>

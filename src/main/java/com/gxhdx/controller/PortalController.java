@@ -36,6 +36,8 @@ public class PortalController {
 	private  NewsService newsService;
 	@Autowired
 	private ActivityTypeService activityTypeService;
+	@Autowired
+	private ActivityService activityService;
 
 	private String template ="";
 
@@ -125,6 +127,21 @@ public class PortalController {
 		model.addAttribute("entity", newsService.getNews(id));
 		model.addAttribute("category", categoryService.getCategory(categoryId));
 		return "portal/"+template+"/news-show";
+	}
+
+	@RequestMapping(value = "/portal_activity/list",method = RequestMethod.GET)
+	public String list(Model model,Long id){
+		Category category = categoryService.getCategory(8L);
+		model.addAttribute("category", category);
+		model.addAttribute("activitys",activityService.findList(id,true,null,null,1,15));
+		return "portal/"+template+"/list-activity";
+	}
+
+	@RequestMapping("/activity")
+	public String activityList(Model model, Long id) {
+		model.addAttribute("entity", activityService.getActivity(id));
+		model.addAttribute("category", categoryService.getCategory(8L));
+		return "portal/"+template+"/activity-show";
 	}
 
 }
