@@ -7,7 +7,7 @@
 				<tr>
 					<th class="table-check"><input type="checkbox" id="checkAll" onclick="selectAll();" /></th>
 					<th class="table-id">ID</th>
-					<th class="table-title">文件名</th>
+					<%--<th class="table-title">文件名</th>--%>
 					<th class="table-title">文件类型</th>
 					<th class="table-title am-hide-sm-only">文件URL</th>
 					<th class="table-title am-hide-sm-only">文件大小</th>
@@ -20,9 +20,14 @@
 					<tr>
 						<td><input type="checkbox" name="checkitem" onclick="selectItem(this);" id="check${item.id }" value="${item.id }"/></td>
 						<td>${item.id }</td>
-						<td>${item.fileName }</td>
+						<%--<td>${item.fileName }</td>--%>
 						<td>${item.fileType }</td>
-						<td class="am-hide-sm-only">${item.url }</td>
+						<td class="am-hide-sm-only">
+							${item.url }
+
+							<img class="small-image" width="480"  src="${item.url }" alt="Bing rect image">
+
+						</td>
 						<td class="am-hide-sm-only">${item.fileSize }</td>
 						<td class="am-hide-sm-only">${item.createDate }</td>
 						<td>
@@ -44,3 +49,4 @@
 		<p>注：.....</p>
 	</form>
 </div>
+
