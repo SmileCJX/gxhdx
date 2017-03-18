@@ -1,9 +1,11 @@
 package com.gxhdx.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
+import com.gxhdx.entity.Student;
+import com.gxhdx.service.AcademyService;
+import com.gxhdx.service.ProfessionService;
+import com.gxhdx.service.StudentService;
+import com.gxhdx.support.ReqDto;
+import com.gxhdx.support.Result;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,16 +14,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.gxhdx.entity.Student;
-import com.gxhdx.service.StudentService;
-import com.gxhdx.support.ReqDto;
-import com.gxhdx.support.Result;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/student")
 public class StudentController {
 	@Autowired
 	private StudentService studentService;
+	@Autowired
+	private AcademyService academyService;
+	@Autowired
+	private ProfessionService professionService;
 
 	@RequiresPermissions({ "student/list" })
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -59,6 +64,8 @@ public class StudentController {
 	@RequiresPermissions({ "student/add" })
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String toAdd(Model model) {
+		model.addAttribute("academys",academyService.findAll());
+		model.addAttribute("professions",professionService.findAll());
 		return "student/add";
 	}
 
@@ -80,6 +87,8 @@ public class StudentController {
 	public String toEdit(Long id, Model model) {
 		try {
 			Student entity = studentService.getStudent(id);
+			model.addAttribute("academys",academyService.findAll());
+			model.addAttribute("professions",professionService.findAll());
 			model.addAttribute("entity", entity);
 		} catch (Exception e) {
 			e.printStackTrace();

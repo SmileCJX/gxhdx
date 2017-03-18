@@ -44,28 +44,42 @@
 							<label for="user-name" class="am-u-sm-3 am-form-label"> 年级
 								/  grade</label>
 							<div class="am-u-sm-9">
-								<input type="text"  id="grade" name="grade" 
-									placeholder="年级/ grade"  required="required" >
+								<select class="form-control" id="grade" name="grade">
+										<option value="12级" selected>12级</option>
+										<option value="13级">13级</option>
+										<option value="14级">14级</option>
+										<option value="15级">15级</option>
+										<option value="16级">16级</option>
+								</select>
 							</div>
 						</div>
-					
-	
+
 						<div class="am-form-group">
-							<label for="user-name" class="am-u-sm-3 am-form-label"> 学院
-								/  academy</label>
+							<label for="academy" class="am-u-sm-3 am-form-label"> 学院
+								/  AcademyName</label>
 							<div class="am-u-sm-9">
-								<input type="text"  id="academy" name="academy" 
-									placeholder="学院/ academy"  required="required" >
+								<select class="form-control" id="academy" name="academy">
+									<c:forEach var="value" items="${academys}">
+										<option value="${value.academyName}">
+												${value.academyName}
+										</option>
+									</c:forEach>
+								</select>
 							</div>
 						</div>
-					
-	
+
+
 						<div class="am-form-group">
-							<label for="user-name" class="am-u-sm-3 am-form-label"> 专业
+							<label for="profession" class="am-u-sm-3 am-form-label"> 专业
 								/  profession</label>
 							<div class="am-u-sm-9">
-								<input type="text"  id="profession" name="profession" 
-									placeholder="专业/ profession"  required="required" >
+								<select class="form-control" id="profession" name="profession">
+									<c:forEach var="value" items="${professions}">
+											<option value="${value.professionName}">
+													${value.professionName}
+											</option>
+									</c:forEach>
+								</select>
 							</div>
 						</div>
 					
@@ -104,8 +118,14 @@
 							<label for="user-name" class="am-u-sm-3 am-form-label"> 角色
 								/  role</label>
 							<div class="am-u-sm-9">
-								<input type="text"  id="role" name="role" 
-									placeholder="角色/ role"  required="" >
+								<select class="form-control" id="role" name="role">
+									<option value="学生" selected>学生</option>
+									<option value="班长">班长</option>
+									<option value="学习委员">学习委员</option>
+									<option value="团支书">团支书</option>
+									<option value="生活委员">生活委员</option>
+									<option value="纪律委员">纪律委员</option>
+								</select>
 							</div>
 						</div>
 					
@@ -124,6 +144,7 @@
 	</div>
 	<!-- content end -->
 	<script type="text/javascript">
+
 	function submitDo() {
 		setTimeout("ajaxDo()",10);
 	}
