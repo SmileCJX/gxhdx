@@ -30,9 +30,32 @@
 							</li>
 						</c:if>
 					</c:forEach>
+					<li>
+						<div class="-mob-share-ui-button -mob-share-open"
+							 style="padding: 0em !important;background: #ffffff !important;color: #333 !important;font-weight:normal !important;">
+						分享
+						</div>
+					</li>
 				</ul>
 			</div>
+			<!--MOB SHARE begin-->
+			<div class="-mob-share-ui" style="display: none">
+				<ul class="-mob-share-list">
+					<li class="-mob-share-weibo"><p>新浪微博</p></li>
+					<li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+					<li class="-mob-share-qzone"><p>QQ空间</p></li>
+					<li class="-mob-share-qq"><p>QQ好友</p></li>
+					<li class="-mob-share-renren"><p>人人网</p></li>
+					<li class="-mob-share-kaixin"><p>开心网</p></li>
+					<li class="-mob-share-douban"><p>豆瓣</p></li>
+					<li class="-mob-share-facebook"><p>Facebook</p></li>
+					<li class="-mob-share-twitter"><p>Twitter</p></li>
+				</ul>
+				<div class="-mob-share-close">取消</div>
+			</div>
+			<div class="-mob-share-ui-bg"></div>
+			<!--MOB SHARE END-->
 
 		</div>
-	</div>
+	</div><script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=1c3756a24433c"></script>
 </header>

@@ -106,7 +106,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 <%--<%@ include file="/WEB-INF/view/portal/default/customer.jsp"%>--%>
 <%@ include file="/WEB-INF/view/portal/default/footer.jsp"%>
 <script type="text/javascript">
