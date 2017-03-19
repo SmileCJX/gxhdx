@@ -67,7 +67,7 @@
 					<ul class="news-content-ul">
 						<c:forEach items="${news.items}" var="item">
 							<c:if test="${item.available}">
-								<li class="am-u-sm-12 am-u-md-6 am-u-lg-6"><a href="#">
+								<li class="am-u-sm-12 am-u-md-6 am-u-lg-6" style="height: 200px"><a href="#">
 									<div class=" am-u-sm-12 am-u-md-12 am-u-lg-5">
 										<div class="news-img">
 											<img src='<c:url value="${item.picurl}"/>'/>

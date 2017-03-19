@@ -49,14 +49,6 @@ display:inline-block
 					      <input type="text"  class="am-form-field" id="keyword" name="keyword" placeholder="新闻关键字">
 					  </div>
 					  <div class="am-form-group">
-					      <span >新闻相关连接</span>
-					      <input type="text"  class="am-form-field" id="url" name="url" placeholder="新闻相关连接">
-					  </div>
-					  <div class="am-form-group">
-					      <span >新闻图片</span>
-					      <input type="text"  class="am-form-field" id="picurl" name="picurl" placeholder="新闻图片">
-					  </div>
-					  <div class="am-form-group">
 					      <span >浏览数</span>
 					      <input type="text"  class="am-form-field" id="hits" name="hits" placeholder="浏览数">
 					  </div>

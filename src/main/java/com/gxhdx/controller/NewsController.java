@@ -1,6 +1,7 @@
 package com.gxhdx.controller;
 
 import com.gxhdx.entity.News;
+import com.gxhdx.service.AcademyService;
 import com.gxhdx.service.NewsService;
 import com.gxhdx.support.ReqDto;
 import com.gxhdx.support.Result;
@@ -21,6 +22,8 @@ import java.util.Date;
 public class NewsController {
 	@Autowired
 	private NewsService newsService;
+	@Autowired
+	private AcademyService academyService;
 
 	@RequiresPermissions({ "news/list" })
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -58,6 +61,7 @@ public class NewsController {
 	@RequiresPermissions({ "news/add" })
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String toAdd(Model model) {
+		model.addAttribute("academys",academyService.findAll());
 		return "news/add";
 	}
 
@@ -80,6 +84,7 @@ public class NewsController {
 		try {
 			News entity = newsService.getNews(id);
 			model.addAttribute("entity", entity);
+			model.addAttribute("academys",academyService.findAll());
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "common/error";
