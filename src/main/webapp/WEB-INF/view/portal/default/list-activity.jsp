@@ -17,7 +17,7 @@
 		<ul data-am-widget="gallery"
 			class="am-gallery am-avg-sm-1 am-avg-md-3 am-avg-lg-4 am-gallery-bordered customer-case-ul"
 			data-am-gallery="{  }">
-			<c:forEach items="${activitys.items }" var="item">
+			<c:forEach items="${activitys }" var="item">
 					<li>
 						<div class="am-gallery-item">
 							<a href="#" onclick="openActivity(${item.id})">

@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class PortalController {
@@ -133,7 +135,14 @@ public class PortalController {
 	public String list(Model model,Long id){
 		Category category = categoryService.getCategory(8L);
 		model.addAttribute("category", category);
-		model.addAttribute("activitys",activityService.findList(id,true,null,null,1,15));
+		PageDto<Activity> activityList = activityService.findList(id,true,null,null,1,15);
+		List<Activity> list = new ArrayList<Activity>();
+		for (int i=0; i<activityList.getTotalCount(); i++){
+			if(activityList.getItems().get(i).getActivityType().getId() == id){
+				list.add( activityList.getItems().get(i) );
+			}
+		}
+		model.addAttribute("activitys",list);
 		return "portal/"+template+"/list-activity";
 	}
 
