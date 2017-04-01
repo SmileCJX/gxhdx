@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page pageEncoding="UTF-8"%>
-<header class="am-topbar header">
+<% HttpSession s = request.getSession();%>
+	<header class="am-topbar header">
 	<div class="am-container-1">
 		<div class="left hw-logo">
 			<img class=" logo"
@@ -36,6 +37,23 @@
 						分享
 						</div>
 					</li>
+					<li  class="am-dropdown" data-am-dropdown>
+						<%--<c:if test="${s.username}"><%=s.getAttribute("username") %></c:if>--%>
+						<%--<a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">--%>
+							<%--<%=s.getAttribute("username") %> <span class="am-icon-caret-down"></span>--%>
+						<%--</a>--%>
+						<a
+								class="am-dropdown-toggle" data-am-dropdown-toggle
+								href="javascript:;"> <span class="am-icon-users"></span> <%=s.getAttribute("USER_Name") %> <span
+								class="am-icon-caret-down"></span>
+						</a>
+						<ul class="am-dropdown-content">
+							<li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
+							<li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
+							<li><a href="logout"><span class="am-icon-power-off"></span> 退出</a></li>
+						</ul>
+
+					</li>
 				</ul>
 			</div>
 			<!--MOB SHARE begin-->
@@ -59,3 +77,4 @@
 		</div>
 	</div><script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=1c3756a24433c"></script>
 </header>
+

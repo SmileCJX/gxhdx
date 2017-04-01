@@ -8,7 +8,9 @@
 
 <!-- AmazeUI -->
 <link rel="stylesheet" type="text/css"
-	href='<c:url value="/static/css/default.amazeui.css"/>'>
+	  href='<c:url value="/static/css/amazeui.css"/>'>
+<%--<link rel="stylesheet" type="text/css"--%>
+	<%--href='<c:url value="/static/css/default.amazeui.css"/>'>--%>
 <link rel="stylesheet" type="text/css"
 	href='<c:url value="/static/css/default.style.css"/>'>
 

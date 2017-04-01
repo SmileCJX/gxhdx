@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,6 +64,11 @@ public class PortalController {
 
 	@RequestMapping("/")
 	public String index(Model model, HttpServletRequest request) {
+		HttpSession httpSession =request.getSession();
+		System.out.println(httpSession.getAttribute("username"));
+		if(httpSession.getAttribute(Constants.USER_NAME_KEY) == null){
+			httpSession.setAttribute(Constants.USER_NAME_KEY,"游客");
+		}
 		model.addAttribute("category", new Category("首页"));
 		model.addAttribute("slideImgs", slideImgService.findList(null,1, 5,true));
 //		model.addAttribute("stadiums", stadiumService.findAll());

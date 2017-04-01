@@ -36,7 +36,9 @@ private static final long serialVersionUID = 1L;
 		@Column(name = "email")  
 	    private  String email;  
 		@Column(name = "role")  
-	    private  String role;  
+	    private  String role;
+        @Column(name = "password")
+        private String password;
 	
 	public Long getId() {
 		return id;
@@ -113,5 +115,13 @@ private static final long serialVersionUID = 1L;
       
     public String getRole(){  
         return   this.role;  
-    }  
-} 
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}
