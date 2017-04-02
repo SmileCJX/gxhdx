@@ -499,11 +499,11 @@
 			<version>7.0.4</version>
 		</dependency>
 
-		<!--&lt;!&ndash;mail相关jar&ndash;&gt;-->
-		<!--<dependency>-->
-			<!--<groupId>javax.mail</groupId>-->
-			<!--<artifactId>mail</artifactId>-->
-			<!--<version>1.4.7</version>-->
-		<!--</dependency>-->
+		<!--mail相关jar-->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
 	</dependencies>
 </project>

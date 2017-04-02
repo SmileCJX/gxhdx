@@ -19,13 +19,16 @@ private static final long serialVersionUID = 1L;
 	private Long id;   
 	@Column(name = "modify_date")
 	private Date modifyDate;   
-		@Column(name = "title")  
-	    private  String title;  
-		@Column(name = "apply_name")
-	    private  String applyName;  
-		@Column(name = "available")  
-	    private  Boolean available;  
-	
+	@Column(name = "title")
+	private  String title;
+	@Column(name = "apply_name")
+	private  String applyName;
+	@Column(name = "available")
+	private  Boolean available;
+	@Column(name = "remind")
+	private  Boolean remind;
+
+
 	public Long getId() {
 		return id;
 	}
@@ -41,9 +44,9 @@ private static final long serialVersionUID = 1L;
 	}
     public void setTitle(String title){  
         this.title=title;  
-    }  
-      
-    public String getTitle(){  
+    }
+
+    public String getTitle(){
         return   this.title;  
     }  
     public void setApplyName(String applyName){  
@@ -59,5 +62,13 @@ private static final long serialVersionUID = 1L;
       
     public Boolean getAvailable(){  
         return   this.available;  
-    }  
-} 
+    }
+
+	public Boolean getRemind() {
+		return remind;
+	}
+
+	public void setRemind(Boolean remind) {
+		this.remind = remind;
+	}
+}

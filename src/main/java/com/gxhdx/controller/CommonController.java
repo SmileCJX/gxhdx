@@ -1,22 +1,13 @@
 package com.gxhdx.controller;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.GraphicsEnvironment;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Date;
-import java.util.Random;
-import java.util.UUID;
-
-import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
+import com.gxhdx.entity.Attachment;
+import com.gxhdx.entity.Signs;
+import com.gxhdx.service.AttachmentService;
+import com.gxhdx.service.SignsService;
+import com.gxhdx.support.EmailUtil;
+import com.gxhdx.support.QiniuFileUtil;
+import com.gxhdx.support.ReqDto;
+import com.gxhdx.support.Result;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,16 +18,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.gxhdx.entity.Attachment;
-import com.gxhdx.service.AttachmentService;
-import com.gxhdx.support.QiniuFileUtil;
-import com.gxhdx.support.ReqDto;
-import com.gxhdx.support.Result;
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Date;
+import java.util.Random;
+import java.util.UUID;
 
 @Controller
 public class CommonController {
 	@Autowired
 	private AttachmentService attachmentService;
+
+	@Autowired
+	private SignsService signsService;
+
 	@RequestMapping("common/chooseLayer")
 	public String chooseLayer() {
 		return "attachment/chooseLayer";
@@ -201,5 +203,21 @@ public class CommonController {
 		int g = fc + random.nextInt(bc - fc);
 		int b = fc + random.nextInt(bc - fc);
 		return new Color(r, g, b);
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "common/sendEmail")
+	public Object sendEmail(HttpServletRequest request, Signs signs){
+		String tip = "";
+		try {
+			signs.setRemind(true);
+			signs = signsService.saveOrUpdate(signs);
+			tip = EmailUtil.sendEmail(signs.getApplyName(),signs.getTitle());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Result(false,"发送失败");
+		} finally {
+			return new Result(true,tip);
+		}
 	}
 }

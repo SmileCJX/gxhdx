@@ -9,6 +9,8 @@
 											<th class="table-date am-hide-sm-only">活动标题</th>
 						<th class="table-date am-hide-sm-only">报名用户</th>
 						<th class="table-date am-hide-sm-only">审核</th>
+						<th class="table-date am-hide-sm-only">状态</th>
+					    <th class="table-date am-hide-sm-only">邮件提醒</th>
 					<th class="table-set">操作</th>
 				</tr>
 			</thead>
@@ -22,6 +24,11 @@
 								<c:if test="${item.available}">通过</c:if>
 								<c:if test="${!item.available}">待定</c:if>
 							</td>
+							<td>
+								<c:if test="${item.remind}">已提醒</c:if>
+								<c:if test="${!item.remind}">未提醒</c:if>
+							</td>
+						    <td><button class="am-btn am-btn-secondary" type="submit" onclick="submitDo('${item.id}','${item.title}','${item.applyName}');"></button></td>
 						<td>
 							<div class="am-btn-toolbar">
 								<div class="am-btn-group am-btn-group-xs">
@@ -45,3 +52,31 @@
 		<p>注：.....</p>
 	</form>
 </div>
+
+<script type="text/javascript">
+	function submitDo(id,title,applyName) {
+		alert("dfadf");
+		$.ajax({
+			url: "common/sendEmail",
+			data: {
+				id : id,
+				title : title,
+				applyName : applyName
+			},
+			method: 'post',
+			contentType: 'application/x-www-form-urlencoded',
+			encoding: 'UTF-8',
+			cache: false,
+			success: function (result) {
+				if (result.success) {
+					layer.msg('发送成功');
+				} else {
+					layer.msg('发送失败');
+				}
+			},
+			error: function () {
+				layer.msg('发送异常');
+			}
+		});
+	}
+</script>
