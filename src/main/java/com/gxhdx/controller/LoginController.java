@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/3/30/030.
@@ -61,6 +62,14 @@ public class LoginController {
         return new Result(true, student);
     }
 
+    @ResponseBody
+    @RequestMapping("/logout")
+    public Object logout(HttpServletRequest request, HttpServletResponse response,HttpSession httpSession){
+
+        httpSession.invalidate();
+        return new Result(true,"注销成功！！！");
+    }
+
 //    @ResponseBody
 //    @RequestMapping("/getAcademy")
 //    public Object getAcademy(){
@@ -69,11 +78,15 @@ public class LoginController {
 //    }
 
     public boolean isValid(Student student) {
-        if (student.getStudentName().equals("admin")
-                || student.getPassword().equals("123456")) {
-            return true;
-        } else {
-            return false;
+        List<Student> list = studentService.findAll();
+        if (student != null) {
+            for(int i=0; i<list.size(); i++){
+                if (student.getStudentName().equals(list.get(i).getStudentName())
+                        && student.getPassword().equals(list.get(i).getPassword())){
+                    return true;
+                }
+            }
         }
+        return false;
     }
 }

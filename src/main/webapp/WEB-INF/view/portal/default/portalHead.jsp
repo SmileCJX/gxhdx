@@ -19,4 +19,6 @@
 <script type="text/javascript"
 	src="<c:url value="/static/js/amazeui.min.js"/>"></script>
 <script type="text/javascript"
+		src="<c:url value="/static/js/layer/layer.js"/>"></script>
+<script type="text/javascript"
 	src="<c:url value="/static/js/scroll.js"/>"></script>

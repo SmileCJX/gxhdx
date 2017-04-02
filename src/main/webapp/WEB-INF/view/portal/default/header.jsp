@@ -50,7 +50,7 @@
 						<ul class="am-dropdown-content">
 							<li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
 							<li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
-							<li><a href="logout"><span class="am-icon-power-off"></span> 退出</a></li>
+							<li><a href="javascript:void(0)" onclick="logout()"><span class="am-icon-power-off"></span> 退出</a></li>
 						</ul>
 
 					</li>
@@ -78,3 +78,29 @@
 	</div><script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=1c3756a24433c"></script>
 </header>
 
+<script type="text/javascript">
+	function logout() {
+		setTimeout("ajaxDo()",10);
+	}
+	function ajaxDo(){
+		$.ajax({
+			url : "portal/logout",
+			data : {},
+			method : 'get',
+			contentType : 'application/x-www-form-urlencoded',
+			encoding : 'UTF-8',
+			cache : false,
+			success : function(result) {
+				if (result.success) {
+					layer.msg('注销成功');
+					window.location.href = '<c:url value="/"/>';
+				} else {
+					layer.msg('注销失败');
+				}
+			},
+			error : function() {
+				layer.msg('注销异常');
+			}
+		});
+	}
+</script>

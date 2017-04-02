@@ -153,16 +153,16 @@
                     </div>
                 </div>
 
-                <div class="am-form-group">
-                    <div class="am-g">
-                        <div class="am-u-md-2 am-padding-0 am-text-right">
-                            <label for="repassword">确认密码</label>
-                        </div>
-                        <div class="am-u-md-10">
-                            <input type="password" id="repassword" name="repassword" placeholder="请与上面输入的值一致" data-equal-to="password" required/>
-                        </div>
-                    </div>
-                </div>
+                <%--<div class="am-form-group">--%>
+                    <%--<div class="am-g">--%>
+                        <%--<div class="am-u-md-2 am-padding-0 am-text-right">--%>
+                            <%--<label for="repassword">确认密码</label>--%>
+                        <%--</div>--%>
+                        <%--<div class="am-u-md-10">--%>
+                            <%--<input type="password" id="repassword" name="repassword" placeholder="请与上面输入的值一致" data-equal-to="password" required/>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
 
                 <div class="am-g">
                     <div class="am-u-md-10">
