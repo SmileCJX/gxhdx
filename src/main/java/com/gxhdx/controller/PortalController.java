@@ -65,7 +65,7 @@ public class PortalController {
 	@RequestMapping("/")
 	public String index(Model model, HttpServletRequest request) {
 		HttpSession httpSession =request.getSession();
-		System.out.println(httpSession.getAttribute("username"));
+//		System.out.println(httpSession.getAttribute(Constants.USER_NAME_KEY));
 		if(httpSession.getAttribute(Constants.USER_NAME_KEY) == null){
 			httpSession.setAttribute(Constants.USER_NAME_KEY,"游客");
 		}

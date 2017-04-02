@@ -22,6 +22,8 @@
 			<p class="am-article-meta">作者：${entity.sponsor }</p>
 			<br>
 			<p class="am-article-meta">发布日期：<fmt:formatDate value="${entity.modifyDate}" pattern="yyyy年MM月dd日 E"/></p>
+			<br/>
+			<p class="am-article-meta"><button type="button" class="am-btn am-btn-success am-round" onclick="apply();" type="submit">我要报名</button></p>
 			<br>
 		</div>
 
@@ -41,3 +43,34 @@
 	<%@ include file="/WEB-INF/view/portal/default/footer.jsp"%>
 </body>
 </html>
+
+<script type="text/javascript">
+	function apply() {
+		setTimeout("ajaxDo()",10);
+	}
+	function ajaxDo(){
+		var data = $("#register-form").serialize();
+		data = decodeURIComponent(data, true);
+		$.ajax({
+			url : "portal/register",
+			data : data,
+			method : 'post',
+			contentType : 'application/x-www-form-urlencoded',
+			encoding : 'UTF-8',
+			cache : false,
+			success : function(result) {
+				if (result.success) {
+					layer.msg('注册成功');
+					window.location.href = '<c:url value="/"/>';
+				} else {
+					layer.msg('注册失败');
+				}
+			},
+			error : function() {
+				layer.msg('注册异常');
+			}
+		});
+	}
+
+</script>
+
