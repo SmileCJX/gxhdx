@@ -25,11 +25,11 @@ public class EmailUtilTest {
     public static String myEmailSMTPHost = "smtp.qq.com";
 
     // 收件人邮箱（替换为自己知道的有效邮箱）
-    public static String receiveMailAccount = "1092925421@qq.com";
+    public static String receiveMailAccount = "2625269272@qq.com";
 //    public static String receiveMailAccount = "18649807437@163.com";
 
     public static void main(String[] args) throws Exception {
-        test("蔡俊祥","我们的活动很给力");
+        test("潘晓军","我们的活动很给力");
     }
 
     public static void test(String applyName,String title) throws Exception {

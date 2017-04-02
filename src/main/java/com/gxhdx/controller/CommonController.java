@@ -2,8 +2,10 @@ package com.gxhdx.controller;
 
 import com.gxhdx.entity.Attachment;
 import com.gxhdx.entity.Signs;
+import com.gxhdx.entity.Student;
 import com.gxhdx.service.AttachmentService;
 import com.gxhdx.service.SignsService;
+import com.gxhdx.service.StudentService;
 import com.gxhdx.support.EmailUtil;
 import com.gxhdx.support.QiniuFileUtil;
 import com.gxhdx.support.ReqDto;
@@ -28,6 +30,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
@@ -38,6 +41,9 @@ public class CommonController {
 
 	@Autowired
 	private SignsService signsService;
+
+	@Autowired
+	private StudentService studentService;
 
 	@RequestMapping("common/chooseLayer")
 	public String chooseLayer() {
@@ -209,10 +215,19 @@ public class CommonController {
 	@RequestMapping(value = "common/sendEmail")
 	public Object sendEmail(HttpServletRequest request, Signs signs){
 		String tip = "";
+		String email = "";
 		try {
+			List<Student> studentList = studentService.findAll();
+			for(int i=0; i<studentList.size(); i++){
+				if(signs.getApplyName()!=null
+						&& signs.getApplyName().equals(studentList.get(i).getStudentName())){
+					email = studentList.get(i).getEmail();
+					break;
+				}
+			}
 			signs.setRemind(true);
 			signs = signsService.saveOrUpdate(signs);
-			tip = EmailUtil.sendEmail(signs.getApplyName(),signs.getTitle());
+			tip = EmailUtil.sendEmail(signs.getApplyName(),signs.getTitle(),email);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new Result(false,"发送失败");
