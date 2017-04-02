@@ -23,7 +23,7 @@
 			<br>
 			<p class="am-article-meta">发布日期：<fmt:formatDate value="${entity.modifyDate}" pattern="yyyy年MM月dd日 E"/></p>
 			<br/>
-			<p class="am-article-meta"><button type="button" class="am-btn am-btn-success am-round" onclick="apply();" type="submit">我要报名</button></p>
+			<p class="am-article-meta"><button type="button" class="am-btn am-btn-success am-round" onclick="apply();">我要报名</button></p>
 			<br>
 		</div>
 
@@ -49,25 +49,26 @@
 		setTimeout("ajaxDo()",10);
 	}
 	function ajaxDo(){
-		var data = $("#register-form").serialize();
-		data = decodeURIComponent(data, true);
 		$.ajax({
-			url : "portal/register",
-			data : data,
+			url : "signs/apply",
+			data : {
+				title: '${entity.title }'
+			},
 			method : 'post',
 			contentType : 'application/x-www-form-urlencoded',
 			encoding : 'UTF-8',
 			cache : false,
 			success : function(result) {
 				if (result.success) {
-					layer.msg('注册成功');
+					layer.msg('报名成功');
 					window.location.href = '<c:url value="/"/>';
 				} else {
-					layer.msg('注册失败');
+					layer.msg('还未登录');
+					<%--window.location.href = '<c:url value="/"/>';--%>
 				}
 			},
 			error : function() {
-				layer.msg('注册异常');
+				layer.msg('报名异常');
 			}
 		});
 	}

@@ -1,9 +1,10 @@
 package com.gxhdx.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
+import com.gxhdx.entity.Constants;
+import com.gxhdx.entity.Signs;
+import com.gxhdx.service.SignsService;
+import com.gxhdx.support.ReqDto;
+import com.gxhdx.support.Result;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.gxhdx.entity.Signs;
-import com.gxhdx.service.SignsService;
-import com.gxhdx.support.ReqDto;
-import com.gxhdx.support.Result;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/signs")
@@ -112,6 +115,25 @@ public class SignsController {
 			return new Result(false, e);
 		}
 		return new Result();
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/apply", method = RequestMethod.POST)
+	public Object apply(HttpServletRequest request, HttpServletResponse response,Signs entity, Model model) {
+		try {
+			HttpSession httpSession = request.getSession();
+			if(httpSession.getAttribute(Constants.USER_NAME_KEY).toString().equals("游客")){
+				return new Result(false,entity);
+			}
+
+			entity.setApplyName(httpSession.getAttribute(Constants.USER_NAME_KEY).toString());
+			entity.setAvailable(false);
+			entity = signsService.saveOrUpdate(entity);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Result(false, e);
+		}
+		return new Result(true, entity);
 	}
 
 }

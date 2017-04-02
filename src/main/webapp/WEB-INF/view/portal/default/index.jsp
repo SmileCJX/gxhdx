@@ -107,6 +107,12 @@
 		</div>
 	</div>
 
+	<div data-am-widget="gotop" class="am-gotop am-gotop-fixed" >
+		<a href="#top" title="">
+			<i class="am-gotop-icon am-icon-hand-o-up"></i>
+		</a>
+	</div>
+
 <%--<%@ include file="/WEB-INF/view/portal/default/customer.jsp"%>--%>
 <%@ include file="/WEB-INF/view/portal/default/footer.jsp"%>
 <script type="text/javascript">

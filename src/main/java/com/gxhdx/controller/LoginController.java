@@ -66,7 +66,7 @@ public class LoginController {
     @RequestMapping("/logout")
     public Object logout(HttpServletRequest request, HttpServletResponse response,HttpSession httpSession){
 
-        httpSession.invalidate();
+        httpSession.removeAttribute(Constants.USER_NAME_KEY);
         return new Result(true,"注销成功！！！");
     }
 
