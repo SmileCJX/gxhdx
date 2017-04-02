@@ -43,9 +43,12 @@
 						<div class="am-form-group">
 							<label for="user-name" class="am-u-sm-3 am-form-label"> 审核
 								/  available</label>
-							<div class="am-u-sm-9">
-								<input type="text"  id="available" name="available" 
-									placeholder="审核/ available"  required="required" >
+							<div class="am-u-sm-9 am-form-select">
+								<select id="available"
+										name="available">
+									<option value="1">通过</option>
+									<option value="0">待定</option>
+								</select>
 							</div>
 						</div>
 					

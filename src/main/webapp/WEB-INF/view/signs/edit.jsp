@@ -45,8 +45,11 @@
 							<label for="user-name" class="am-u-sm-3 am-form-label"> 审核
 								/  available</label>
 							<div class="am-u-sm-9">
-								<input type="text" id="available" name="available" value="${entity.available}"
-									placeholder="审核/ available" required="required">
+								<select  id="available"
+										 name="available">
+									<option value="1" <c:if test="${entity.available}">selected="selected"</c:if>>通过</option>
+									<option value="0" <c:if test="${!entity.available}">selected="selected"</c:if>>待定</option>
+								</select>
 							</div>
 						</div>
 					

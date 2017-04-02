@@ -18,7 +18,10 @@
 						<td><input type="checkbox" name="checkitem" onclick="selectItem(this);" id="check${item.id }" value="${item.id }"/></td>
 							<td>${item.title}</td>
 							<td>${item.applyName}</td>
-							<td>${item.available}</td>
+							<td>
+								<c:if test="${item.available}">通过</c:if>
+								<c:if test="${!item.available}">待定</c:if>
+							</td>
 						<td>
 							<div class="am-btn-toolbar">
 								<div class="am-btn-group am-btn-group-xs">
