@@ -14,7 +14,7 @@
 						<th class="table-date am-hide-sm-only">活动承办人员</th>
 						<th class="table-date am-hide-sm-only">活动承办人联系电话</th>
 						<th class="table-date am-hide-sm-only">浏览数</th>
-						<th class="table-date am-hide-sm-only">活动备注</th>
+						<%--<th class="table-date am-hide-sm-only">活动备注</th>--%>
 						<th class="table-date am-hide-sm-only">是否有效</th>
 						<%--<th class="table-date am-hide-sm-only">活动图片</th>--%>
 						<th class="table-date am-hide-sm-only">活动类型</th>
@@ -33,7 +33,7 @@
 							<td>${item.sponsor}</td>
 							<td>${item.sponsorPhone}</td>
 							<td>${item.hits}</td>
-							<td>${item.remark}</td>
+							<%--<td>${item.remark}</td>--%>
 							<td>${item.available}</td>
 							<%--<td>${item.imgUrl}</td>--%>
 							<td>${item.activityType.typeName}</td>
