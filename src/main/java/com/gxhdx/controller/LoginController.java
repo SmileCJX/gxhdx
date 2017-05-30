@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -68,6 +69,50 @@ public class LoginController {
 
         httpSession.removeAttribute(Constants.USER_NAME_KEY);
         return new Result(true,"注销成功！！！");
+    }
+
+    @RequestMapping("/information")
+    public String information(HttpServletRequest request, HttpServletResponse response,HttpSession httpSession,Model model){
+        String userName = (String)httpSession.getAttribute(Constants.USER_NAME_KEY);
+        List<Student> studentList = studentService.findAll();
+        if(userName == null){
+            return "用户未登陆";
+        }
+        for(Student entity : studentList){
+            if(userName.equals(entity.getStudentName())){
+                model.addAttribute("entity", entity);
+                break;
+            }
+        }
+        return "portal/default/information";
+    }
+
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    public String edit(HttpServletRequest request, HttpServletResponse response,HttpSession httpSession,Model model){
+        String userName = (String)httpSession.getAttribute(Constants.USER_NAME_KEY);
+        List<Student> studentList = studentService.findAll();
+        if(userName == null){
+            return "用户未登陆";
+        }
+        for(Student entity : studentList){
+            if(userName.equals(entity.getStudentName())){
+                model.addAttribute("entity", entity);
+                break;
+            }
+        }
+        return "portal/default/edit";
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public Object edit(Student entity, Model model) {
+        try {
+            entity = studentService.saveOrUpdate(entity);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false, e);
+        }
+        return new Result(true, entity);
     }
 
 //    @ResponseBody

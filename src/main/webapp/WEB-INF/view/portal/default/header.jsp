@@ -48,8 +48,8 @@
 								class="am-icon-caret-down"></span>
 						</a>
 						<ul class="am-dropdown-content">
-							<li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
-							<li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
+							<li><a href="javascript:void(0)" onclick="openWindow('portal/information','资料');"><span class="am-icon-user"></span> 资料</a></li>
+							<li><a href="javascript:void(0)" onclick="openWindow('portal/edit','编辑');"><span class="am-icon-cog"></span> 设置</a></li>
 							<li><a href="javascript:void(0)" onclick="logout()"><span class="am-icon-power-off"></span> 退出</a></li>
 						</ul>
 
@@ -77,7 +77,7 @@
 		</div>
 	</div><script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=1c3756a24433c"></script>
 </header>
-
+<script type="text/javascript" src="<c:url value="/static/js/app.js"/>"></script>
 <script type="text/javascript">
 	function logout() {
 		setTimeout("ajaxDo()",10);
