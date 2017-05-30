@@ -12,6 +12,32 @@
           href='<c:url value="/static/css/common.min.css"/>'>
     <link rel="stylesheet" type="text/css"
           href='<c:url value="/static/css/other.min.css"/>'>
+    <style>
+        #vld-tooltip {
+            position: absolute;
+            z-index: 1000;
+            padding: 5px 10px;
+            background: #F37B1D;
+            min-width: 150px;
+            color: #fff;
+            transition: all 0.15s;
+            box-shadow: 0 0 5px rgba(0,0,0,.15);
+            display: none;
+        }
+
+        #vld-tooltip:before {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            width: 0;
+            height: 0;
+            margin-left: -8px;
+            content: "";
+            border-width: 0 8px 8px;
+            border-color: transparent transparent #F37B1D;
+            border-style: none inset solid;
+        }
+    </style>
 </head>
 <body>
 <%@ include file="/WEB-INF/view/portal/default/header.jsp"%>
@@ -31,7 +57,7 @@
                         </div>
                         <div class="am-u-md-10">
                             <input type="text" id="doc-vld-name-2" minlength="3"
-                                   placeholder="输入用户名（至少 3 个字符）" required/>
+                                   placeholder="输入账号（至少 3 个字符）" data-foolish-msg="请输入账号！" required/>
                         </div>
                     </div>
                 </div>
@@ -43,7 +69,7 @@
                         </div>
                         <div class="am-u-md-10">
                             <input type="text" id="studentName" name="studentName" minlength="3"
-                                   placeholder="输入用户名（至少 3 个字符）" required/>
+                                   placeholder="输入用户名（至少 3 个字符）" data-foolish-msg="请输入用户名！" required/>
                         </div>
                     </div>
                 </div>
@@ -54,8 +80,8 @@
                             <label for="doc-vld-name-2" class="register-sno">学号</label>
                         </div>
                         <div class="am-u-md-10">
-                            <input type="text" id="sno" name="sno" minlength="3"
-                                   placeholder="请输入学号" required/>
+                            <input type="text" id="sno" name="sno" minlength="13" maxlength="13"
+                                   placeholder="请输入学号" data-foolish-msg="请输入学号！" required/>
                         </div>
                     </div>
                 </div>
@@ -84,7 +110,7 @@
                         </div>
                         <div class="am-u-md-10">
                             <input type="text" id="academy" name="academy" minlength="3"
-                                   placeholder="请输入学院" required/>
+                                   placeholder="请输入学院" data-foolish-msg="请输入学院！" required/>
                             <%--<select class="form-control" id="academy" name="academy">--%>
                                     <%--<option value="${value.academyName}">--%>
                                             <%--${value.academyName}--%>
@@ -101,7 +127,7 @@
                         </div>
                         <div class="am-u-md-10">
                             <input type="text" id="profession" name="profession" minlength="3"
-                                   placeholder="请输入专业" required/>
+                                   placeholder="请输入专业"  data-foolish-msg="请输入专业！" required/>
                         </div>
                     </div>
                 </div>
@@ -113,7 +139,7 @@
                         </div>
                         <div class="am-u-md-10">
                             <input type="text" id="classes" name="classes" minlength="3"
-                                   placeholder="请输入班级" required/>
+                                   placeholder="请输入班级" data-foolish-msg="请输入班级！" required/>
                         </div>
                     </div>
                 </div>
@@ -125,7 +151,7 @@
                         </div>
                         <div class="am-u-md-10">
                             <input type="text" id="phone" name="phone" minlength="3"
-                                   placeholder="请输入电话" required/>
+                                   placeholder="请输入电话"  data-foolish-msg="请输入电话！" required/>
                         </div>
                     </div>
                 </div>
@@ -136,8 +162,8 @@
                             <label for="doc-vld-name-2" class="register-email">邮箱</label>
                         </div>
                         <div class="am-u-md-10">
-                            <input type="text" id="email" name="email" minlength="3"
-                                   placeholder="请输入邮箱" required/>
+                            <input type="email" id="email" name="email" minlength="3"
+                                   placeholder="请输入邮箱" data-foolish-msg="请输入邮箱！" required/>
                         </div>
                     </div>
                 </div>
@@ -148,7 +174,7 @@
                             <label for="password" class="register-pwd">密码</label>
                         </div>
                         <div class="am-u-md-10">
-                            <input type="password" id="password" name="password" placeholder="请输入密码"  required/>
+                            <input type="password" id="password" name="password" placeholder="请输入密码" data-foolish-msg="请输入密码！"  required/>
                         </div>
                     </div>
                 </div>
@@ -187,6 +213,31 @@
 <script type="text/javascript"
         src="<c:url value="/static/js/layer/layer.js"/>"></script>
 <script type="text/javascript">
+
+    $(function() {
+        var $form = $('#register-form');
+        var $tooltip = $('<div id="vld-tooltip">提示信息！</div>');
+        $tooltip.appendTo(document.body);
+
+        $form.validator();
+
+        var validator = $form.data('amui.validator');
+
+        $form.on('focusin focusout', '.am-form-error input', function(e) {
+            if (e.type === 'focusin') {
+                var $this = $(this);
+                var offset = $this.offset();
+                var msg = $this.data('foolishMsg') || validator.getValidationMessage($this.data('validity'));
+
+                $tooltip.text(msg).show().css({
+                    left: offset.left + 10,
+                    top: offset.top + $(this).outerHeight() + 10
+                });
+            } else {
+                $tooltip.hide();
+            }
+        });
+    });
     <%--$(function() {--%>
         <%--alert("hahah ");--%>
         <%--getAcademy();--%>

@@ -46,23 +46,23 @@
 									value="${entity.subTitle }" placeholder="站点副标题 / SubTitle">
 							</div>
 						</div>
-						<div class="am-form-group">
-							<label for="user-phone" class="am-u-sm-3 am-form-label">站点模版
-								/ SubTitle</label>
-							<div class="am-u-sm-9 am-form-select">
-								<select id="siteTemplate" name="siteTemplate"
-									onchange="showTemplateImg()">
-									<option value="default"
-										<c:if test="${myfn:equals(entity.siteTemplate, 'default')}">selected="selected"</c:if>>样式一</option>
-									<option value="news"
-										<c:if test="${myfn:equals(entity.siteTemplate, 'news')}">selected="selected"</c:if>>样式二</option>
-									<option value="company"
-										<c:if test="${myfn:equals(entity.siteTemplate, 'company')}">selected="selected"</c:if>>样式三</option>
-									<option value="zuqiu"
-										<c:if test="${myfn:equals(entity.siteTemplate, 'zuqiu')}">selected="selected"</c:if>>样式四</option>
-								</select>
-							</div>
-						</div>
+						<%--<div class="am-form-group">--%>
+							<%--<label for="user-phone" class="am-u-sm-3 am-form-label">站点模版--%>
+								<%--/ SubTitle</label>--%>
+							<%--<div class="am-u-sm-9 am-form-select">--%>
+								<%--<select id="siteTemplate" name="siteTemplate"--%>
+									<%--onchange="showTemplateImg()">--%>
+									<%--<option value="default"--%>
+										<%--<c:if test="${myfn:equals(entity.siteTemplate, 'default')}">selected="selected"</c:if>>样式一</option>--%>
+									<%--<option value="news"--%>
+										<%--<c:if test="${myfn:equals(entity.siteTemplate, 'news')}">selected="selected"</c:if>>样式二</option>--%>
+									<%--<option value="company"--%>
+										<%--<c:if test="${myfn:equals(entity.siteTemplate, 'company')}">selected="selected"</c:if>>样式三</option>--%>
+									<%--<option value="zuqiu"--%>
+										<%--<c:if test="${myfn:equals(entity.siteTemplate, 'zuqiu')}">selected="selected"</c:if>>样式四</option>--%>
+								<%--</select>--%>
+							<%--</div>--%>
+						<%--</div>--%>
 						<div class="am-form-group">
 							<label for="user-phone" class="am-u-sm-3 am-form-label">站点logo
 								/ SiteLogo</label>
