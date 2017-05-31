@@ -41,6 +41,8 @@ public class PortalController {
 	private ActivityTypeService activityTypeService;
 	@Autowired
 	private ActivityService activityService;
+	@Autowired
+	private CommentService commentService;
 
 	private String template ="";
 
@@ -156,6 +158,9 @@ public class PortalController {
 	public String activityList(Model model, Long id) {
 		model.addAttribute("entity", activityService.getActivity(id));
 		model.addAttribute("category", categoryService.getCategory(8L));
+		PageDto<Comment> commentPageDto = commentService.findList(null,null, id,null,null,1,10);
+		List<Comment> commentList = commentPageDto.getItems();
+		model.addAttribute("commentList",commentList);
 		return "portal/"+template+"/activity-show";
 	}
 

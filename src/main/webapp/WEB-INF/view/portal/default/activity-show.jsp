@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page pageEncoding="UTF-8"%>
+<%--<% HttpSession s = request.getSession();%>--%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <!--[if lte IE 9]>
@@ -34,17 +35,116 @@
 			<hr>
 		</div>
 		</article>
+		<c:forEach items="${commentList }" var="item">
+			<article class="am-comment">
+				<a href="#link-to-user-home">
+					<img src="" alt="" class="am-comment-avatar" width="48" height="48"/>
+				</a>
+
+				<div class="am-comment-main">
+					<header class="am-comment-hd">
+						<!--<h3 class="am-comment-title">评论标题</h3>-->
+						<div class="am-comment-meta">
+							<a href="#link-to-user" class="am-comment-author">${item.username }</a>
+							评论于 <time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">${item.modifyDate }</time>
+						</div>
+					</header>
+
+					<div class="am-comment-bd">
+							${item.content }
+					</div>
+				</div>
+			</article>
+		</c:forEach>
+
+		<form action="" class="am-form" id="ue-form">
+			<fieldset>
+				<div class="am-form-group">
+					<label for="content">评论：</label>
+					<textarea class="am-validate" id="content" name="content"  required></textarea>
+				</div>
+				<input type="text" id="activityId" name="activityId"  style="display: none" value="${entity.id}" required/>
+				<input type="text" id="username" name="username"  style="display: none"  required/>
+				<button class="am-btn am-btn-secondary" type="submit" onclick="submitDo();">提交</button>
+			</fieldset>
+		</form>
 	</div>
+
 	<div data-am-widget="gotop" class="am-gotop am-gotop-fixed" >
 		<a href="#top" title="">
 			<i class="am-gotop-icon am-icon-hand-o-up"></i>
 		</a>
 	</div>
 	<%@ include file="/WEB-INF/view/portal/default/footer.jsp"%>
+	<script src="<c:url value="/static/plugin/ueditor/ueditor.config.js"/>"></script>
+	<script src="<c:url value="/static/plugin/ueditor/ueditor.all.js"/>"></script>
 </body>
 </html>
 
 <script type="text/javascript">
+	$(function() {
+		$("#username").attr("value",$(".am-dropdown-toggle").text().trim());
+
+		var $textArea = $('[name=content]');
+		var editor = UE.getEditor('content');
+		var $form = $('#ue-form');
+
+		$form.validator({
+			submit: function() {
+				// 同步编辑器数据
+				editor.sync();
+
+				var formValidity = this.isFormValid();
+
+				// 表单验证未成功，而且未成功的第一个元素为 UEEditor 时，focus 编辑器
+				if (!formValidity && $form.find('.' + this.options.inValidClass).eq(0).is($textArea)) {
+					editor.focus();
+				}
+
+				console.warn('验证状态：', formValidity ? '通过' : '未通过');
+
+				return false;
+			}
+		});
+
+		// 编辑器内容变化时同步到 textarea
+		editor.addListener('contentChange', function() {
+			editor.sync();
+
+			// 触发验证
+			$('[name=content]').trigger('change');
+		});
+	});
+
+	function submitDo() {
+		setTimeout("ajaxDoResend()",10);
+	}
+	function ajaxDoResend(){
+		if($("#form .am-field-error").size()!=0){
+			return false;
+		}
+		var data = $("#ue-form").serialize();
+		data = decodeURIComponent(data, true);
+		$.ajax({
+			url : "comment/resend",
+			data : data,
+			method : 'post',
+			contentType : 'application/x-www-form-urlencoded',
+			encoding : 'UTF-8',
+			cache : false,
+			success : function(result) {
+				if (result.success) {
+					layer.msg('评论成功');
+					setTimeout("closeWindow()", 1000);
+				} else {
+					layer.msg('评论失败');
+				}
+			},
+			error : function() {
+				layer.msg('评论异常');
+			}
+		});
+	}
 	function apply() {
 		setTimeout("ajaxDo()",10);
 	}
