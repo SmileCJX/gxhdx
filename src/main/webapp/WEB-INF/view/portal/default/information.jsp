@@ -26,7 +26,7 @@
                             /  studentName</label>
                         <div class="am-u-sm-9">
                             <input type="text" id="studentName" name="studentName" value="${entity.studentName}"
-                                   placeholder="学生姓名/ studentName" required="required">
+                                   placeholder="学生姓名/ studentName" required="required" readonly="readonly">
                         </div>
                     </div>
 
@@ -36,7 +36,7 @@
                             /  sno</label>
                         <div class="am-u-sm-9">
                             <input type="text" id="sno" name="sno" value="${entity.sno}"
-                                   placeholder="学号/ sno" required="required">
+                                   placeholder="学号/ sno" required="required" readonly="readonly">
                         </div>
                     </div>
 
@@ -45,14 +45,8 @@
                         <label for="user-name" class="am-u-sm-3 am-form-label"> 年级
                             /  grade</label>
                         <div class="am-u-sm-9">
-                            <select class="form-control" id="grade" name="grade">
-                                <option value="${entity.grade}" selected>${entity.grade}</option>
-                                <option value="12级">12级</option>
-                                <option value="13级">13级</option>
-                                <option value="14级">14级</option>
-                                <option value="15级">15级</option>
-                                <option value="16级">16级</option>
-                            </select>
+                            <input type="text" id="grade" name="grade" value="${entity.grade}"
+                                   placeholder="年级/ sno" required="required" readonly="readonly">
                         </div>
                     </div>
 
@@ -60,16 +54,8 @@
                         <label for="academy" class="am-u-sm-3 am-form-label"> 学院名称
                             /  AcademyName</label>
                         <div class="am-u-sm-9">
-                            <select class="form-control" id="academy" name="academy">
-                                <option value="${entity.academy}" selected>
-                                    ${entity.academy}
-                                </option>
-                                <c:forEach var="value" items="${academys}">
-                                    <option value="${value.academyName}">
-                                            ${value.academyName}
-                                    </option>
-                                </c:forEach>
-                            </select>
+                            <input type="text" id="academy" name="academy" value="${entity.academy}"
+                                   placeholder="学院名称/ academy" required="required" readonly="readonly">
                         </div>
                     </div>
 
@@ -77,16 +63,8 @@
                         <label for="profession" class="am-u-sm-3 am-form-label"> 专业
                             /  profession</label>
                         <div class="am-u-sm-9">
-                            <select class="form-control" id="profession" name="profession">
-                                <option value="${entity.profession}" selected>
-                                    ${entity.profession}
-                                </option>
-                                <c:forEach var="value" items="${professions}">
-                                    <option value="${value.professionName}">
-                                            ${value.professionName}
-                                    </option>
-                                </c:forEach>
-                            </select>
+                            <input type="text" id="profession" name="profession" value="${entity.profession}"
+                                   placeholder="专业/ profession" required="required" readonly="readonly">
                         </div>
                     </div>
 
@@ -95,7 +73,7 @@
                             /  classes</label>
                         <div class="am-u-sm-9">
                             <input type="text" id="classes" name="classes" value="${entity.classes}"
-                                   placeholder="班级/ classes" required="required">
+                                   placeholder="班级/ classes" required="required" readonly="readonly">
                         </div>
                     </div>
 
@@ -105,7 +83,7 @@
                             /  phone</label>
                         <div class="am-u-sm-9">
                             <input type="text" id="phone" name="phone" value="${entity.phone}"
-                                   placeholder="电话/ phone" required="required">
+                                   placeholder="电话/ phone" required="required" readonly="readonly">
                         </div>
                     </div>
 
@@ -115,7 +93,7 @@
                             /  email</label>
                         <div class="am-u-sm-9">
                             <input type="text" id="email" name="email" value="${entity.email}"
-                                   placeholder="邮箱/ email" required="">
+                                   placeholder="邮箱/ email" required="" readonly="readonly">
                         </div>
                     </div>
 
@@ -123,9 +101,10 @@
                     <div class="am-form-group">
                         <label for="user-name" class="am-u-sm-3 am-form-label"> 角色
                             /  role</label>
-                        <label class="am-u-sm-9" am-form-label>
-                            <span>${entity.role}</span>
-                        </label>
+                        <div class="am-u-sm-9">
+                            <input type="text" id="role" name="role" value="${entity.role}"
+                                   placeholder="角色/ role" required="" readonly="readonly">
+                        </div>
                     </div>
                 </form>
             </div>

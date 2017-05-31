@@ -48,8 +48,8 @@
 								class="am-icon-caret-down"></span>
 						</a>
 						<ul class="am-dropdown-content">
-							<li><a href="javascript:void(0)" onclick="openWindow('portal/information','资料');"><span class="am-icon-user"></span> 资料</a></li>
-							<li><a href="javascript:void(0)" onclick="openWindow('portal/edit','编辑');"><span class="am-icon-cog"></span> 设置</a></li>
+							<li><a href="javascript:void(0)" onclick="openPortalWindow('portal/information','资料');"><span class="am-icon-user"></span> 资料</a></li>
+							<li><a href="javascript:void(0)" onclick="openPortalWindow('portal/edit','编辑');"><span class="am-icon-cog"></span> 设置</a></li>
 							<li><a href="javascript:void(0)" onclick="logout()"><span class="am-icon-power-off"></span> 退出</a></li>
 						</ul>
 

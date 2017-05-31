@@ -15,6 +15,8 @@
 	  href='<c:url value="/static/css/amazeui.datetimepicker.css"/>'>
 <link rel="stylesheet" type="text/css"
 	href='<c:url value="/static/css/admin.css"/>'>
+<link rel="stylesheet" type="text/css"
+	  href='<c:url value="/static/css/hideandShow.css"/>'>
 
 <script type="text/javascript"
 	src="<c:url value="/static/js/jquery.min.js"/>"></script>
@@ -27,3 +29,7 @@
 	src="<c:url value="/static/js/layer/layer.js"/>"></script>
 <script type="text/javascript"
 	src="<c:url value="/static/plugin/My97DatePicker/WdatePicker.js"/>"></script>
+<script type="text/javascript"
+		src="<c:url value="/static/js/vendor/modernizr.custom.js"/>"></script>
+<script type="text/javascript"
+		src="<c:url value="/static/js/hideShowPassword.min.js"/>"></script>

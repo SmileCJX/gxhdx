@@ -137,6 +137,15 @@
                     </div>
 
                     <div class="am-form-group">
+                        <label for="user-name" class="am-u-sm-3 am-form-label"> 密码重置
+                            /  email</label>
+                        <div class="am-u-sm-9">
+                            <input type="password" id="password" name="password" value="${entity.password}"
+                                   placeholder="密码/ password" required="" class="login-field login-field-password">
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
                         <div class="am-u-sm-9 am-u-sm-push-3">
                             <button type="submit" onclick="submitDo();"
                                     class="am-btn am-btn-primary">保存</button>
@@ -179,6 +188,13 @@
             }
         });
     }
+    $('#password').hideShowPassword({
+        // Creates a wrapper and toggle element with minimal styles.
+        innerToggle: true,
+        // Makes the toggle functional in touch browsers without
+        // the element losing focus.
+        touchSupport: Modernizr.touch
+    });
 </script>
 </body>
 </html>

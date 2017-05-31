@@ -42,6 +42,17 @@ function openWindow(url, title) {
 		content : url
 	});
 }
+function openPortalWindow(url, title) {
+	var index = layer.open({
+		type : 2,
+		title : title,
+		area : [ '60%', '40%' ],
+		fix : false, //不固定
+		maxmin : true,
+		content : url,
+		offset: '40px'
+	});
+}
 function closeWindow() {
 	parent.query();
 	var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
