@@ -1,7 +1,9 @@
 package com.gxhdx.controller;
 
 import com.gxhdx.entity.Constants;
+import com.gxhdx.entity.Signs;
 import com.gxhdx.entity.Student;
+import com.gxhdx.service.SignsService;
 import com.gxhdx.service.StudentService;
 import com.gxhdx.support.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,6 +28,9 @@ public class LoginController {
 
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private SignsService signsService;
 
 //    @Autowired
 //    private AcademyService academyService;
@@ -133,5 +139,22 @@ public class LoginController {
             }
         }
         return false;
+    }
+
+    @RequestMapping("/activityCenter")
+    public String activityCenter(HttpServletRequest request, HttpServletResponse response,HttpSession httpSession,Model model){
+        String userName = (String)httpSession.getAttribute(Constants.USER_NAME_KEY);
+        List<Signs> signsList = signsService.findAll();
+        if(userName == null){
+            return "用户未登陆";
+        }
+        List<Signs> personSignsList = new ArrayList<Signs>();
+        for(Signs entity : signsList){
+            if(userName.equals(entity.getApplyName())){
+                personSignsList.add(entity);
+            }
+        }
+        model.addAttribute("entity", personSignsList);
+        return "portal/default/activitycenter";
     }
 }
