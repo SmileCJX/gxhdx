@@ -68,8 +68,8 @@
                             <label for="doc-vld-name-2" class="register-name">姓名</label>
                         </div>
                         <div class="am-u-md-10">
-                            <input type="text" id="studentName" name="studentName" minlength="3"
-                                   placeholder="输入用户名（至少 3 个字符）" data-foolish-msg="请输入用户名！" required/>
+                            <input type="text" id="studentName" name="studentName"
+                                   placeholder="输入用户名" data-foolish-msg="请输入用户名！" required/>
                         </div>
                     </div>
                 </div>
@@ -150,7 +150,7 @@
                             <label for="doc-vld-name-2" class="register-phone">电话</label>
                         </div>
                         <div class="am-u-md-10">
-                            <input type="text" id="phone" name="phone" minlength="3"
+                            <input type="text" id="phone" name="phone" minlength="11" maxlength="11"
                                    placeholder="请输入电话"  data-foolish-msg="请输入电话！" required/>
                         </div>
                     </div>
@@ -276,6 +276,46 @@
         setTimeout("ajaxDo()",10);
     }
     function ajaxDo(){
+        if($("#doc-vld-name-2").val()===null || $("#doc-vld-name-2").val()===undefined || $("#doc-vld-name-2").val()===""){
+            layer.msg("账号不全");
+            return;
+        }
+        if($("#studentName").val()===null || $("#studentName").val()===undefined || $("#studentName").val()===""){
+            layer.msg("姓名未填");
+            return;
+        }
+        if($("#sno").val()===null || $("#sno").val()===undefined || $("#sno").val()===""){
+            layer.msg("学号未填");
+            return;
+        }
+        if($("#academy").val()===null || $("#academy").val()===undefined || $("#academy").val()===""){
+            layer.msg("学院未填");
+            return;
+        }
+        if($("#profession").val()===null || $("#profession").val()===undefined || $("#profession").val()===""){
+            layer.msg("专业未填");
+            return;
+        }
+        if($("#classes").val()===null || $("#classes").val()===undefined || $("#classes").val()===""){
+            layer.msg("班级未填");
+            return;
+        }
+        if($("#phone").val()===null || $("#phone").val()===undefined || $("#phone").val()===""){
+            layer.msg("班级未填");
+            return;
+        }
+        if($("#phone").val()===null || $("#phone").val()===undefined || $("#phone").val()===""){
+            layer.msg("手机号信息不全");
+            return;
+        }
+        if($("#email").val()===null || $("#email").val()===undefined || $("#email").val()===""){
+            layer.msg("邮箱未填");
+            return;
+        }
+        if($("#password").val()===null || $("#password").val()===undefined || $("#password").val()===""){
+            layer.msg("密码未填");
+            return;
+        }
         var data = $("#register-form").serialize();
         data = decodeURIComponent(data, true);
         $.ajax({
