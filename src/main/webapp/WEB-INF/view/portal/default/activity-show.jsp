@@ -46,7 +46,7 @@
 						<!--<h3 class="am-comment-title">评论标题</h3>-->
 						<div class="am-comment-meta">
 							<a href="#link-to-user" class="am-comment-author">${item.username }</a>
-							评论于 <time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">${item.modifyDate }</time>
+							评论于 <time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800"><fmt:formatDate value="${item.modifyDate }" pattern="yyyy年MM月dd日 E"/></time>
 						</div>
 					</header>
 
@@ -164,6 +164,7 @@
 					window.location.href = '<c:url value="/"/>';
 				} else {
 					layer.msg('还未登录');
+					setTimeout(window.location.href = "list?categoryId=9",2000);
 					<%--window.location.href = '<c:url value="/"/>';--%>
 				}
 			},

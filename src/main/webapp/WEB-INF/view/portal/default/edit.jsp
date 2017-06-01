@@ -177,14 +177,14 @@
             cache : false,
             success : function(result) {
                 if (result.success) {
-                    layer.msg('保存成功');
+                    layer.msg('修改信息成功');
                     setTimeout("closeWindow()", 1000);
                 } else {
-                    layer.msg('保存失败');
+                    layer.msg('修改信息失败');
                 }
             },
             error : function() {
-                layer.msg('系统异常');
+                layer.msg('修改信息异常');
             }
         });
     }
