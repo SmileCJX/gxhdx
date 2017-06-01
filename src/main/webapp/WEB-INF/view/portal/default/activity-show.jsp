@@ -38,7 +38,7 @@
 		<c:forEach items="${commentList }" var="item">
 			<article class="am-comment">
 				<a href="#link-to-user-home">
-					<img src="" alt="" class="am-comment-avatar" width="48" height="48"/>
+					<img src="/gxhdx/static/image/login/user.png" alt="" class="am-comment-avatar" width="48" height="48"/>
 				</a>
 
 				<div class="am-comment-main">

@@ -25,7 +25,7 @@ public class EmailUtilTest {
     public static String myEmailSMTPHost = "smtp.qq.com";
 
     // 收件人邮箱（替换为自己知道的有效邮箱）
-    public static String receiveMailAccount = "2625269272@qq.com";
+    public static String receiveMailAccount = "1092925421@qq.com";
 //    public static String receiveMailAccount = "18649807437@163.com";
 
     public static void main(String[] args) throws Exception {

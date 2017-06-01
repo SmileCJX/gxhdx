@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page pageEncoding="UTF-8"%>
 <!-- content start -->
 	<div class="admin-content-body">
@@ -36,7 +37,7 @@
 					<c:forEach items="${messageboards}" var="item">
 						<li class="am-g am-list-item-dated">
 							<a href="##" class="am-list-item-hd ">${item.content}</a>
-							<span class="am-list-date">${item.modifyDate}</span>
+							<span class="am-list-date"><fmt:formatDate value="${item.modifyDate}" pattern="yyyy年MM月dd日 E"/></span>
 						</li>
 						<br/>
 					</c:forEach>
